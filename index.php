@@ -56,7 +56,7 @@
                 <button type="button" class="btn btn-default navbar-btn btn-lg">Przypomnij haslo</button>
             </form> ---->
             
-            
+   
             
             <div class=" well">
 			<legend>Logowanie</legend>     
@@ -68,7 +68,8 @@
                                 <div class="form-group">
                                    <input type="password" id="password" class="form-control" name="password" placeholder="Hasło">
                                 </div>	
-                            <button type="submit" name="submit" class="btn btn-info btn-block">Zaloguj</button>
+
+                            <button type="submit" name="submit" class="btn btn-info btn-block ">Zaloguj</button>
 			<button type="submit" name="submit" class="btn  btn-block">Przypomnij haslo</button>
 					
 				</form>		
