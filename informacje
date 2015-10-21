@@ -1,0 +1,13 @@
+Plik z ogólnymi informacjami
+
+Nazwy zmiennych sesyjnych;
+$_SESSION['zalogowany']; - przechowuje TRUE, jeśli uzytkownik jest zalogowany
+$_SESSION['login']; - przechowuje login użytkownika (o ile się zalogował)
+$_SESSION['typ']; - przechowuje typ (rangę) użytkownika (u - user, n - nauczyciel, a - admin)
+$_SESSION['id_usera']; - przechowuje ID użytkownika (z bazy danych)
+$_SESSION['imie']; - imie użytkownika
+$_SESSION['nazwisko']; - nazwisko użytkownika
+
+
+Funkcje:
+// informacje o funkcjach - do wypisania

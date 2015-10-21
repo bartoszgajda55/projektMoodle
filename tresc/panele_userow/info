@@ -1,0 +1,6 @@
+Przedrostki plików:
+u_ - użytkownik (i w górę)
+n_ - nauczyciel (i w górę)
+a_ - admin
+
+określenie (i w górę) oznacza, że jeśi do czegoś ma dostęp użytkownik to dostęp ma także admin i nauczyciel

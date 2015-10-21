@@ -6,6 +6,10 @@
     require_once("funkcje/f_include.php");
     // plik f_przyciski zawiera funkcje które wyswietlaja przyciski
     require_once("funkcje/f_przyciski.php");
+    // plik f_uzytkownicy zawiera funkcje, które sprawdzają zalogowanego użytkownika
+    require_once("funkcje/f_uzytkownicy.php");
+    // podłączenie do bazy danych
+    require_once("baza/polaczenie.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,7 +31,7 @@
                  <?php 
                      // dołącza plik, jaki jest podany w zmiennej $_GET['v'] (pierwszy argument)
                      // jeśli taka zmienna nie istnieje, jest dodawany plik 'tresc/strona_glowna' (drugi argument)
-                     dolacz_plik("v", "tresc/strona_glowna"); 
+                     dolacz_plik("v", "tresc/logowanie/logowanie"); 
                  ?>
             </div> 
         </div>    
