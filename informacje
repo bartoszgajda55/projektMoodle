@@ -1,13 +1,57 @@
 Plik z ogólnymi informacjami
 
 Nazwy zmiennych sesyjnych;
-$_SESSION['zalogowany']; - przechowuje TRUE, jeśli uzytkownik jest zalogowany
-$_SESSION['login']; - przechowuje login użytkownika (o ile się zalogował)
-$_SESSION['typ']; - przechowuje typ (rangę) użytkownika (u - user, n - nauczyciel, a - admin)
-$_SESSION['id_usera']; - przechowuje ID użytkownika (z bazy danych)
-$_SESSION['imie']; - imie użytkownika
-$_SESSION['nazwisko']; - nazwisko użytkownika
+    $_SESSION['zalogowany']; - przechowuje TRUE, jeśli uzytkownik jest zalogowany
+    $_SESSION['login']; - przechowuje login użytkownika (o ile się zalogował)
+    $_SESSION['typ']; - przechowuje typ (rangę) użytkownika (u - user, n - nauczyciel, a - admin)
+    $_SESSION['id_usera']; - przechowuje ID użytkownika (z bazy danych)
+    $_SESSION['imie']; - imie użytkownika
+    $_SESSION['nazwisko']; - nazwisko użytkownika
 
 
 Funkcje:
-// informacje o funkcjach - do wypisania
+    dolacz_plik($nazwa_zmiennej_get, $domyslny_plik) - dołącza plik ze zmiennej GET
+         - pierwszy argument to nazwa zmiennej $_GET z pasku adresu
+         - drugi argument to domyślny plik który ma się wyświuetlić, gdy ta zmienna nie istenieje
+
+    standardowy_przycisk($adres, $tresc, [$podswietlenie=1]) - tworzy przycisk
+         - pierwszy argument to adres przycisku (<a href="">
+         - drugi argument to nazwa wyświetlana na przycisku
+         - trzeci argument jest opcjonalny. Gdy ustawimy go na 0 to przycisk nie będzie podświetlany
+
+    zalogowany() - zwraca TRUE jeśli użytkownik jest zalogowany, w przeciwnym wypadku FALSE
+    zalogowano() - to samo co wyżej, tylko inna nazwa
+    admin() - zwraca TRUE jeśli zalogowany jest admin, w przeciwnym wypadku FALSE
+    nauczyciel() - zwraca TRUE, jeśli jest zalogowany nauczycie. W przeciwnym wypadku FALSE
+    
+
+Struktura katalogów: (@ - to folder; # - to plik)
+
+    @ baza - znajdują się tu informacje o połączeniu z bazą danych, a także pliki z zrzutami MySQL
+        # polaczenie.php - plik, który łączy się z bazą danych
+        # *.sql - zrzuty z bazy danych
+    
+    @ bootstrap - znajdują się tu wszystkie pliki z bootstrapa, lepiej nie mieszać nic tam
+    
+    @ funkcje - pliki z funkcjami i pliki "statyczne" (wyświetlane na każdej podstronie
+      - prefix f_ oznacza, że plik zawiera funkcje
+        # f_include.php - plik z funkcjami do podłączania plików
+        # f_przyciski.php - funkcje wyświetlające przyciski (linki)
+        # f_uzytkownicy.php - funkcje sprawdzające stan zalogowania użytkownika
+        # head.php - plik z <head> storny z <html>
+        # menu_gorna_belka.php - menu z górną belką, która wyświetla się na każdej stronie
+
+    @ tresc - folder z treścią, czyli papu dla całej powierzchni strony
+        @ kursy - 
+        @ logowanie - zawiera formularz logowania i skrypt wylogowania
+            # logowanie.php - formularz logowania wraz ze skryptem logowania
+            # wyloguj.php - kasuje sesję i wylogowywuje użytkownika
+        @ panele_userow - 
+        @ rejestracja - pliki z formularzami i skryptami do rejstracji
+            # rejestracja.php - formularz i skrypt rejestracji użytkownika
+        
+        # strona_glowna.php - treść z główną stroną wyświetlaną po wejściu na witrynę (na razie nie działa)
+
+    # index.php - główny plik który jest uruchamiany po odpaleniu strony
+    # informacje - plik z informacjami
+

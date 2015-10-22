@@ -19,7 +19,7 @@
                 standardowy_przycisk("?v=tresc/panele_userow/index", "<b>{$_SESSION['imie']} {$_SESSION['nazwisko']}</b>");
                 
                 // jeśli zalogowano jako admin lub nauczyciel, to wyświetlamy przycisk z zarządzniem kursami
-                if (admin() || nauczyciel)
+                if (admin() || nauczyciel())
                 {
                     standardowy_przycisk("?v=tresc/panele_userow/index&prawa=tresc/panele_userow/____jakis__adres__1__", "Zarządzanie kursami", 0);
                 }
@@ -37,7 +37,7 @@
             {
                 standardowy_przycisk("index.php?v=tresc/test_menu_z_lewej/glowne", "Testy");
                 standardowy_przycisk("?v=tresc/logowanie/logowanie", "Logowanie");
-                standardowy_przycisk("index.php?v=___REJESTRACJA__", "Rejestracja");   
+                standardowy_przycisk("index.php?v=tresc/rejestracja/rejestracja", "Rejestracja");   
             }
               ?>
             <!--<li><a href="index.php" class=""></a></li> -->

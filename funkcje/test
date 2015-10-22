@@ -1,4 +1,0 @@
-Nazewnictwo:
- - prefix f_ oznacza, że to plik z funkcjami (function());
- - head.php - zawiera <head> z <html>
- - menu_gorna_belka.php - zawiera górną belkę, która wyświetla się na każdej stronie

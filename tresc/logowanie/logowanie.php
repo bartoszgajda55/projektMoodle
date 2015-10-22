@@ -56,7 +56,7 @@
                     return;
             }
             // przenosimy usera na strone z informacjami o zalogowaniu
-            header("Location: index.php?v=tresc/panele_userow/informacje_o_koncie&zalogowano=tak");
+            header("Location: index.php?v=tresc/panele_userow/index&prawa=tresc/panele_userow/u_info&zalogowano=tak");
         }
     }
     // dane w formularzu są puste, trzeba dodać błędy
