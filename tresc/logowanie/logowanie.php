@@ -98,9 +98,11 @@
             </div>
             <div class="form-group">
                 <input type="password" id="password" class="form-control" name="haslo" placeholder="Hasło">
-            </div>	
-            <button type="submit" name="submit" class="btn btn-info btn-block ">Zaloguj</button>
-            <button type="submit" name="submit" class="btn  btn-block">Przypomnij haslo</button>
+            </div>
+            <div class="row">
+            <div class="col-md-6"><button type="submit" name="submit" class="btn btn-info btn-block ">Zaloguj</button></div>
+            <div class="col-md-6"><button type="button" name="przypomnij" class="btn  btn-block" onclick="parent.location='index.php?v=tresc/przypomnij_haslo/przypomnij'">Przypomnij haslo</button></div>
+            </div>    
         </form>		
     </div>
 </div>
