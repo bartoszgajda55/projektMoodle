@@ -25,7 +25,7 @@
         if (admin())
         {
             echo "<hr>";
-            standardowy_przycisk("{$plik}&prawa=tresc/panele_userow/____jakis__adres__11__", "Mianuj na nauczyciela");
+            standardowy_przycisk("{$plik}&prawa=tresc/panele_userow/admin/a_zarzadzanie_uzytkownikami", "Zarządzanie użytkownikami");
             standardowy_przycisk("{$plik}&prawa=tresc/panele_userow/____jakis__adres__22__", "Jesztem admin!");
         }
         
