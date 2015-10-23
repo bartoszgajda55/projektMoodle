@@ -1,12 +1,10 @@
- <div class="col-md-2"></div>
-  <div class="col-md-8">
-      
-      
+<div class="col-md-2"></div>
+<div class="col-md-8">
+       
 <?php
 // w tym miejscu musimy sprawdzic parę zmiennych $_GET
 // zmienna $_GET['zarejestrowano']==tak - oznacze że użytkownik się zarejestrował i trzeba wyświetlić stosowny komunikat
 // zmienna $_GET['zalogowano']==tak - oznacza, że użytkownik sie zalogował. Trzeba go o tym poinformować piknie
-
     // użytkownik się zarejstrował
     if (isset($_GET['zarejestrowano']) && $_GET['zarejestrowano']=="tak")
     {
@@ -19,10 +17,9 @@
     }
 
 ?>
+    <h3>Witaj <?=$_SESSION['imie']?> <?=$_SESSION['nazwisko']?></h3>
       
-      
-Strona główna, ble ble ble. Nie ma tu nic
-Strona główna dla zalogowanego użytkownika z podsumowaniem wszystkiego
+Ble ble ble - główna strona z informacjami dla uzytkownika.
 
   </div>
         <div class="col-md-2"></div>

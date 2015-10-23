@@ -26,6 +26,8 @@
         {
             echo "<hr><center><p>Panel Administratora</p></center>";
             standardowy_przycisk("{$plik}&prawa=tresc/panele_userow/admin/a_zarzadzanie_uzytkownikami", "Zarządzanie użytkownikami");
+            standardowy_przycisk("{$plik}&prawa=tresc/panele_userow/admin/a_zarzadzanie_kursami", "Zarządzanie kursami");
+            standardowy_przycisk("{$plik}&prawa=tresc/panele_userow/admin/a_dodawanie_usera_do_kursu", "Dodaj użytkownika do kursu");
         }
         
         ?>

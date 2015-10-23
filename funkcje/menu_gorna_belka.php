@@ -38,7 +38,7 @@
                 // jeśli zalogowano jako użytkownik to wyświetlamy przycisk "Moje kursy"
                 else
                 {
-                    standardowy_przycisk("?v=__kursy_danego_uzytkownika____", "Moje kursy");
+                    standardowy_przycisk("?v=tresc/u_kursy/lista_kursow_uzytkownika", "Moje kursy");
                 }
                 
                 standardowy_przycisk("tresc/logowanie/wyloguj.php?wyloguj=tak", "Wyloguj");
