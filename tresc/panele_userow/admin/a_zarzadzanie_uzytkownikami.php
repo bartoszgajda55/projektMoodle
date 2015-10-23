@@ -1,10 +1,9 @@
+<!-- Plik umożliwia zarządzanie użytkownikami:
+    Awansowanie na nauczyciela, degradacja do ucznia
+    blokowanie i odblokowywanie użytkownika
+-->
 <h2>Zarządzanie użytkownikami</h2>
-Plik umożliwia: <br>
- - mianowanie na nauczyciela <br>
- - degradacja z nauczyciela do użytkownika <br>
- - blokowanie użytkownika <br>
- - odlbokowanie użytkownika <br> <br><hr><hr>
- 
+<hr>
  <table class="table">
   <thead>
     <tr>
@@ -43,7 +42,7 @@ $wynik = mysql_query("SELECT * FROM uzytkownicy");
         else if($r['typ']=="n")
         {
             // jak nauczyciel to dajemy możliwość degradacji do zwykłego usera
-            $awans = '<a href="" type="button" class="btn btn-primary">Degraduj</a>';
+            $awans = '<a href="'.$adres_pliku.'&prawa=tresc/panele_userow/admin/a_degraduj_na_ucznia&id='.$id.'" type="button" class="btn btn-primary">Degraduj</a>';
         } 
         else if($r['typ']=="u") 
         {
@@ -55,13 +54,20 @@ $wynik = mysql_query("SELECT * FROM uzytkownicy");
         // wyświetlamy możliwość zablokowania lub odblokowania
         if($r['typ']=="blocked")
         {
-            // dodac komenty
-            $blokada = '<a href="" type="button" class="btn btn-success">Odblokuj</a>';
+            $blokada = '<a href="'.$adres_pliku.'&prawa=tresc/panele_userow/admin/a_zablokuj_odblokuj&id='.$id.'" type="button" class="btn btn-success">Odblokuj</a>';
         }
-        else $blokada = '<a href="" type="button" class="btn btn-danger">Zablokuj</a>';
+        else $blokada = '<a href="'.$adres_pliku.'&prawa=tresc/panele_userow/admin/a_zablokuj_odblokuj&id='.$id.'" type="button" class="btn btn-danger">Zablokuj</a>';
         
-        
-        echo '<tr>';
+        // podświetlamy wiersz z użytkownikiem, który właśnie został zmodyfikowany (warning to kolor żółty)
+        if (isset($_GET['id']) && $_GET['id']==$id)
+        {
+            echo '<tr class="warning">';
+        }
+        else
+        {
+            echo '<tr>';
+        }
+        // wyświetlamy dany wiersz w tabeli
         echo '<td>'.$r['id'].'</td>';
         echo '<td>'.$r['login'].'</td>';
         echo '<td>'.$r['imie'].'</td>';
@@ -75,3 +81,38 @@ $wynik = mysql_query("SELECT * FROM uzytkownicy");
 ?>
   </tbody>
 </table>
+
+<?php
+    // wyświetlamy komunikaty potwierdzające sukces wykonywanych operacji (lub ich zaniechanie)
+    // dokonano awansu na nauczyciela
+    if(isset($_GET['awans']) && $_GET['awans']=="tak")
+    {
+        echo '<div class="alert alert-success" role="alert">Awans na nauczyciela zakończony sukcesem</div>';
+    }
+    // zaniechano dokonania awansu 
+    else if(isset($_GET['awans']) && $_GET['awans']=="nie")
+    {
+        echo '<div class="alert alert-info" role="alert">Nie wprowadzono zmian, nikogo nie awansowano</div>';
+    }
+    
+    // zdegradowano nauczyciela do ucznia
+    if(isset($_GET['degradacja']) && $_GET['degradacja']=="tak")
+    {
+        echo '<div class="alert alert-success" role="alert">Degradacja do rangi ucznia zakończona sukcesem</div>';
+    }
+    // zaniechanie degradacji nauczyciela na ucznia
+    else if(isset($_GET['degradacja']) && $_GET['degradacja']=="nie")
+    {
+        echo '<div class="alert alert-info" role="alert">Nie wprowadzono zmian, nikt nie został zdegradowany do rangi ucznia</div>';
+    }
+    // założono blokadę na użytkownika
+    if(isset($_GET['blokada']) && $_GET['blokada']=="tak")
+    {
+        echo '<div class="alert alert-danger" role="alert">Założono blokadę na użytkownika</div>';
+    }
+    // zdjęcto blokadę z użytkownika
+    else if(isset($_GET['blokada']) && $_GET['blokada']=="nie")
+    {
+        echo '<div class="alert alert-success" role="alert">Blokada z użytkownika została pomyślnie zdjęta</div>';
+    }
+?>

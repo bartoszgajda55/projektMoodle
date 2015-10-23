@@ -2,7 +2,7 @@
       Z lewej strony zawiera menu
       Z prawej strony wyświetlają się podstrony
 --->
-<h1>Informacje o koncie i zarządzanie kursami</h1>
+<h1>Panel użytkownika</h1>
 <hr>
 
 <div class="col-md-3">
@@ -13,20 +13,19 @@
         // przyciski do podstron
         standardowy_przycisk("{$plik}&prawa=tresc/panele_userow/uczen/u_info", "Główne informacje");
         standardowy_przycisk("{$plik}&prawa=tresc/panele_userow/uczen/u_zmiana_hasla", "Zmiana hasła");
-        standardowy_przycisk("{$plik}&prawa=____KOLEJNY__ADRES____", "Kolejny przycisk");
+        //standardowy_przycisk("{$plik}&prawa=____KOLEJNY__ADRES____", "Kolejny przycisk");
         // jeśli jesteśmy nauczycielem lub adminem, mamy dostęp do dodatkowych opcji (przycisków)
         if (nauczyciel() || admin())
         {   
-            echo "<hr>";
+            echo "<hr><center><p>Panel Nauczyciela</p></center>";
             standardowy_przycisk("{$plik}&prawa=tresc/panele_userow/____jakis__adres__1__", "Stwórz nowy kurs");
-            standardowy_przycisk("{$plik}&prawa=tresc/panele_userow/____jakis__adres__2__", "Dodaj użytkownika do kursu");
-            standardowy_przycisk("{$plik}&prawa=tresc/panele_userow/____jakis__adres__3__", "Ble ble ble");
+           // standardowy_przycisk("{$plik}&prawa=tresc/panele_userow/____jakis__adres__2__", "Dodaj użytkownika do kursu");
+           // standardowy_przycisk("{$plik}&prawa=tresc/panele_userow/____jakis__adres__3__", "Ble ble ble");
         }
         if (admin())
         {
-            echo "<hr>";
+            echo "<hr><center><p>Panel Administratora</p></center>";
             standardowy_przycisk("{$plik}&prawa=tresc/panele_userow/admin/a_zarzadzanie_uzytkownikami", "Zarządzanie użytkownikami");
-            standardowy_przycisk("{$plik}&prawa=tresc/panele_userow/____jakis__adres__22__", "Jesztem admin!");
         }
         
         ?>
