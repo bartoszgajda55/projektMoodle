@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 23, 2015 at 10:40 AM
+-- Generation Time: Oct 23, 2015 at 10:52 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -79,6 +79,7 @@ CREATE TABLE IF NOT EXISTS `uzytkownicy` (
   `nazwisko` text COLLATE utf8_polish_ci NOT NULL,
   `typ` text COLLATE utf8_polish_ci NOT NULL,
   `email` text COLLATE utf8_polish_ci NOT NULL,
+  `reset_hasla` text COLLATE utf8_polish_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=4 ;
@@ -87,10 +88,10 @@ CREATE TABLE IF NOT EXISTS `uzytkownicy` (
 -- Dumping data for table `uzytkownicy`
 --
 
-INSERT INTO `uzytkownicy` (`id`, `login`, `haslo`, `imie`, `nazwisko`, `typ`, `email`) VALUES
-(1, 'test', 'test', 'Testownik', 'Testowy', 'a', ''),
-(2, 'test2', 'test2', 'Jan', 'Kowalski', 'n', 'test2@wp.pl'),
-(3, 'test3', 'test3', 'Paweł', 'Kowalski', 'u', 'test3@wp.pl');
+INSERT INTO `uzytkownicy` (`id`, `login`, `haslo`, `imie`, `nazwisko`, `typ`, `email`, `reset_hasla`) VALUES
+(1, 'test', 'test', 'Testownik', 'Testowy', 'a', '', ''),
+(2, 'test2', 'test2', 'Jan', 'Kowalski', 'n', 'test2@wp.pl', ''),
+(3, 'test3', 'test3', 'Paweł', 'Kowalski', 'u', 'test3@wp.pl', '');
 
 -- --------------------------------------------------------
 
