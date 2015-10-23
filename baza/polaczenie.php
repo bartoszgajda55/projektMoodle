@@ -4,7 +4,7 @@
 
     $adres = '127.0.0.1';
     $uzytkownik = 'root';
-    $haslo = 'bazydanych';
+    $haslo = '';
     $nazwa_bazy = 'projektMoodle';
 
     // ustanawiamy połączenie z bazą, jak się nie łączy, wyświetlamy błąd
