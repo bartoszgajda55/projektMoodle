@@ -55,3 +55,24 @@ Struktura katalogów: (@ - to folder; # - to plik)
     # index.php - główny plik który jest uruchamiany po odpaleniu strony
     # informacje - plik z informacjami
 
+Tabele z bazy danych
+
+
+
+
+
+
+
+Do zrobienia:
+ - admin -  zarzadzanie
+ - nauczyciel - zarządzanie
+ - uczeń - te zmiany hasla itp i ble ble
+
+ - przypomnij haslo
+ - wygląd formularzy
+
+ - tworzenie kursow
+ - wyświetlanie kursów
+ - dołączanie do kursu
+ - dodawanie lekcji do kursu
+ - i ble ble ble

@@ -1,3 +1,7 @@
+<?php
+if (!zalogowano()) return;
+?>
+
 Tabelka z informacjami o userze
 <hr>
 

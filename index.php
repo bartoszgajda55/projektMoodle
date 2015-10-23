@@ -1,5 +1,5 @@
 <?php session_start(); 
-    //rozpoczęcie sesji #lol
+    //rozpoczęcie sesji #lol hahaha
     // oraz dołączenie plików z funkcjami 
     // niechcący kod może być dołączony kilka razy, dlatego używamy dyrektywy require_once
     // plik f_include zawiera funkcje, które dołączają pliki z treścią do strony

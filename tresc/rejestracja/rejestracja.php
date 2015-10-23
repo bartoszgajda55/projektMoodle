@@ -76,7 +76,7 @@ if($licznik_bledow == 0)
             $_SESSION['nazwisko'] = $r['nazwisko'];
         }
         // przekierowanie użytkownika na stronę z informacjami
-        header("Location: index.php?v=tresc/panele_userow/index&prawa=tresc/panele_userow/u_info&zarejestrowano=tak");
+        header("Location: index.php?v=tresc/strona_glowna&zarejestrowano=tak");
     }
 }
 

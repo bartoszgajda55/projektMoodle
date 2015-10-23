@@ -7,7 +7,19 @@
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <a class="navbar-brand" href="index.php">Projekt moodle</a>
+        <?php
+        // jeśli użytkownik jest zalogowany to dajemy inny link do strony głownej
+        if (zalogowany())
+        {
+            echo ('<a class="navbar-brand" href="index.php?v=tresc/strona_glowna">Projekt moodle</a>');
+        }
+        // jeśli nie ma zalogowania, to wyświetlamy standardowe okno logowania
+        else
+        {
+            echo ('<a class="navbar-brand" href="index.php">Projekt moodle</a>');
+        }
+                  
+        ?>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -16,12 +28,12 @@
             // jeśli zalogowano, wyświetlamy inne menu
             if (zalogowany())
             {
-                standardowy_przycisk("?v=tresc/panele_userow/index", "<b>{$_SESSION['imie']} {$_SESSION['nazwisko']}</b>");
+                standardowy_przycisk("?v=tresc/panele_userow/panel_glowny", "<b>{$_SESSION['imie']} {$_SESSION['nazwisko']}</b>");
                 
                 // jeśli zalogowano jako admin lub nauczyciel, to wyświetlamy przycisk z zarządzniem kursami
                 if (admin() || nauczyciel())
                 {
-                    standardowy_przycisk("?v=tresc/panele_userow/index&prawa=tresc/panele_userow/____jakis__adres__1__", "Zarządzanie kursami", 0);
+                    standardowy_przycisk("?v=tresc/panele_userow/panel_glowny&prawa=tresc/panele_userow/____jakis__adres__1__", "Zarządzanie kursami", 0);
                 }
                 // jeśli zalogowano jako użytkownik to wyświetlamy przycisk "Moje kursy"
                 else
@@ -35,7 +47,6 @@
             // jeśli NIE zalogowano jest inne menu
             else
             {
-                standardowy_przycisk("index.php?v=tresc/test_menu_z_lewej/glowne", "Testy");
                 standardowy_przycisk("?v=tresc/logowanie/logowanie", "Logowanie");
                 standardowy_przycisk("index.php?v=tresc/rejestracja/rejestracja", "Rejestracja");   
             }
