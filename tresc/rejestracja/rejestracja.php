@@ -1,5 +1,27 @@
 <div class="col-md-2"></div>
 <div class="col-md-8">
+        <div class=" well">
+        <legend>Rejestracja</legend>     
+        <form action="?v=tresc/rejestracja/rejestracja" method="post" accept-charset="utf-8">
+            <div class="form-group">
+                <input type="text" id="login" class="form-control" name="login" placeholder="Login" value="<?=@$_POST['login']?>">
+            </div>
+            <div class="form-group">
+                <input type="password" id="password1" class="form-control" name="haslo1" placeholder="Hasło" >
+            </div>
+            <div class="form-group">
+                 <input type="password" id="password2" class="form-control" name="haslo2" placeholder="Powtórz hasło">
+            </div>
+            <div class="form-group">
+                <input type="text" id="imie" class="form-control" name="imie" placeholder="Imię" value="<?=@$_POST['imie']?>">
+            </div>
+            <div class="form-group">
+                <input type="text" id="nazwisko" class="form-control" name="nazwisko" placeholder="Nazwisko" value="<?=@$_POST['nazwisko']?>" >
+            </div>	
+            <button type="submit" name="submit" class="btn btn-danger btn-block ">Rejestracja</button>
+            
+        </form>		
+    </div>
 <?php
 // Skrypt rejestracji nowego użytkownika
 // Sprawdzamy, czy użytkownik rzypadkiem nie jest zalogowany i czy nie wszedł tutaj przez przypadek
@@ -91,31 +113,6 @@ if (isset($bledy) &&  $bledy[0]!="")
     echo '</div>';
 }
 ?>
- 
-
-
-
-
-
-    <div class=" well">
-        <legend>Rejestracja</legend>     
-        <form action="?v=tresc/rejestracja/rejestracja" method="post" accept-charset="utf-8">
-            <div class="form-group">
-                <input type="text" id="login" class="form-control" name="login" placeholder="Login" value="<?=@$_POST['login']?>">
-            </div>
-            <div class="form-group">
-                <input type="password" id="password1" class="form-control" name="haslo1" placeholder="Hasło" > 
-                 <input type="password" id="password2" class="form-control" name="haslo2" placeholder="Powtórz hasło">
-            </div>
-            <div class="form-group">
-                <input type="text" id="imie" class="form-control" name="imie" placeholder="Imię" value="<?=@$_POST['imie']?>">
-            </div>
-            <div class="form-group">
-                <input type="text" id="nazwisko" class="form-control" name="nazwisko" placeholder="Nazwisko" value="<?=@$_POST['nazwisko']?>" >
-            </div>	
-            <button type="submit" name="submit" class="btn btn-danger btn-block ">Rejestracja</button>
-            
-        </form>		
-    </div>
 </div>
-<div class="col-md-2"></div>
+<div align="center" class="col-md-2">
+</div>
