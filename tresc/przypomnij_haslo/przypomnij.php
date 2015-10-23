@@ -29,7 +29,7 @@
         // jesli wszystko ok, to logujemy
         else 
         {
-         echo '<div class="alert alert-success" role="alert">Wysłano kod to zresetowania hasła!</div>';
+        echo '<div class="alert alert-success" role="alert">Wysłano kod to zresetowania hasła!</div>';
         }
     }
     // dane w formularzu są puste, trzeba dodać błędy
@@ -55,7 +55,7 @@
     }
 ?>
     
-    <div class=" well">
+    <div id="logowanie" class="row">
         <legend>Przypomnij Hasło</legend>     
         <form action="?v=tresc/przypomnij_haslo/przypomnij" method="post" accept-charset="utf-8">
             <div class="form-group">

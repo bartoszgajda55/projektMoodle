@@ -1,6 +1,6 @@
 <div class="col-md-2"></div>
 <div class="col-md-8">
-        <div class=" well">
+        <div id="logowanie" class="row">
         <legend>Rejestracja</legend>     
         <form action="?v=tresc/rejestracja/rejestracja" method="post" accept-charset="utf-8">
             <div class="form-group">

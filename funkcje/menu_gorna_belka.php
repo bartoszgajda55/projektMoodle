@@ -3,7 +3,7 @@
 // kod PHP jest wymagany do zmieniania przycisków w zależności od zalogowania
 // (np. niezalogowany, user, nauczyciel, admin)
 ?>
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
