@@ -2,7 +2,7 @@
       Z lewej strony zawiera menu
       Z prawej strony wyświetlają się podstrony
 --->
-<h1>Panel użytkownika</h1>
+<div id='panel'><h1>Panel użytkownika</h1></div>
 <hr>
 
 <div class="col-md-3">

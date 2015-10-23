@@ -90,7 +90,7 @@
     }
 ?>
     
-    <div class=" well">
+    <div id="logowanie" class="row">
         <legend>Logowanie</legend>     
         <form action="?v=tresc/logowanie/logowanie" method="post" accept-charset="utf-8">
             <div class="form-group">
@@ -99,9 +99,10 @@
             <div class="form-group">
                 <input type="password" id="password" class="form-control" name="haslo" placeholder="Hasło">
             </div>
-            <div class="row">
+            <div class="">
             <div class="col-md-6"><button type="submit" name="submit" class="btn btn-info btn-block ">Zaloguj</button></div>
-            <div class="col-md-6"><button type="button" name="przypomnij" class="btn  btn-block" onclick="parent.location='index.php?v=tresc/przypomnij_haslo/przypomnij'">Przypomnij haslo</button></div>
+            <div class="col-md-6"><button type="button" name="przypomnij" class="btn  btn-block" 
+                                          onclick="parent.location='index.php?v=tresc/przypomnij_haslo/przypomnij'">Przypomnij haslo</button></div>
             </div>    
         </form>		
     </div>
