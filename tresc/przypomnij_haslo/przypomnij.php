@@ -26,7 +26,7 @@
         {
             $bledy[] = 'Niepoprawny Email. // Nie ma takiego Loginu w bazie //';
         } 
-        // jesli wszystko ok, to logujemy
+        // jesli wszystko ok, to wysyłamy
         else 
         {
         echo '<div class="alert alert-success" role="alert">Wysłano kod to zresetowania hasła!</div>';
@@ -65,8 +65,11 @@
                 <input type="text" id="password" class="form-control" name="login" placeholder="Login">
             </div>
             <div class="row">
-            <div class="col-md-6"><button type="submit" name="submit" class="btn btn-info btn-block ">Wyślij</button></div>
-            </div>    
+            <div class="col-md-6"><button type="submit" name="submit" class="btn btn-info btn-block ">Wyślij Kod</button></div>
+            <div class="col-md-6"><button type="button" name="wpisz" class="btn  btn-block" 
+                                          onclick="parent.location='index.php?v=tresc/przypomnij_haslo/reset'">Już mam Kod !</button></div>
+            </div>
+            
         </form>		
     </div>
 </div>
