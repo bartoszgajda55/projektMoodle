@@ -2,8 +2,7 @@
      Skrypt sprawdza poprawność formularza i wysłanych w nim danych
      Następnie loguje, ustawiając odpowiednie wartości zmiennym $_SESSION
 --->
-<div class="col-md-2"></div>
-<div class="col-md-8">
+<div class="col-md-6">
 <?php
     // sprawdzamy, czy formularz zostal przesłany
     if (isset($_POST['email']) && $_POST['login']!="" && $_POST['kod']!="" && $_POST['haslo']!="" && $_POST['nowe_haslo']!="") 
@@ -78,7 +77,7 @@
 ?>
     
     <div id="logowanie" class="row">
-        <legend>Przypomnij Hasło</legend>     
+        <legend>Ustaw Nowe Hasło</legend>     
         <form action="?v=tresc/przypomnij_haslo/reset" method="post" accept-charset="utf-8">
             <div class="form-group">
                 <input type="text" id="email" class="form-control" name="email" placeholder="Email">
@@ -96,7 +95,7 @@
                 <input type="text" id="nowe_haslo" class="form-control" name="nowe_haslo" placeholder="Powtórz nowe hasło">
             </div>
             <div class="row">
-            <div class="col-md-6"><button type="submit" name="submit" class="btn btn-info btn-block ">Wyślij</button></div>
+            <div class="col-md-6"><button type="submit" name="submit" class="btn btn-info btn-block ">Ustaw Nowe Hasło</button></div>
             </div>
         </form>		
     </div>
@@ -112,4 +111,10 @@
     }
     ?>
 </div>
-<div class="col-md-2"></div>
+<div class="col-md-6">
+    <h2>Ustawianie Hasła</h2>
+    <p>Jeśli dotarłeś na tą stronę, to znaczy że otrzymałeś już swój unikalny kod.
+        Wpisz go koniecznie, bez niego proces zmiany hasła nie powiedzie sie.
+    <p>Uważnie wpisz swoje nowe hasło. I koniecznie zapamiętaj, każdy nowy kod kosztuje 2,46 zł + VAT.<br>
+        <img src="../../img/zyd.jpg">
+</div>
