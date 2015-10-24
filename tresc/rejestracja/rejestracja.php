@@ -1,4 +1,4 @@
-<div class="col-md-8">
+<div class="col-md-6">
         <div id="logowanie" class="row">
         <legend>Rejestracja</legend>     
         <form action="?v=tresc/rejestracja/rejestracja" id="rejestracja" method="post" accept-charset="utf-8">
@@ -6,10 +6,10 @@
                 <input type="text" id="login" class="form-control" name="r_login" placeholder="Login" value="">
             </div>
             <div class="form-group">
-                <input type="password" id="password1" class="form-control" name="r_haslo1" placeholder="Hasło" >
+                <input type="password" id="r_haslo" class="form-control" name="r_haslo1" placeholder="Hasło" >
             </div>
             <div class="form-group">
-                 <input type="password" id="password2" class="form-control" name="r_haslo2" placeholder="Powtórz hasło">
+                 <input type="password" id="r_haslo2" class="form-control" name="r_haslo2" placeholder="Powtórz hasło">
             </div>
             <div class="form-group">
                 <input type="email" id="email" class="form-control" name="r_email" placeholder="Email" value="<?=@$_POST['email']?>">
@@ -20,7 +20,7 @@
             <div class="form-group">
                 <input type="text" id="nazwisko" class="form-control" name="r_nazwisko" placeholder="Nazwisko" value="<?=@$_POST['nazwisko']?>" >
             </div>	
-            <button type="submit" name="submit" class="btn btn-danger btn-block ">Rejestracja</button>
+            <button type="submit" name="submit" class="btn btn-info btn-block ">Rejestracja</button>
             
         </form>		
     </div>
@@ -114,4 +114,10 @@ if($licznik_bledow == 0)
     }
 }
 ?>
+</div>
+<div class="col-md-6">
+    <h2>Rejestracja</h2>
+    <p>Rejestracja na portalu umożliwi Ci korzystanie z wszelkich dobrodziejstw tej platformy.
+        Po ukończeniu rejestracji zostaniesz automatycznie zalogowany. Bez potwierdzania emailem.
+    <p>
 </div>

@@ -5,14 +5,14 @@
 <div class="col-md-6">
 <?php
     // sprawdzamy, czy formularz zostal przesłany
-    if (isset($_POST['email']) && $_POST['login']!="" && $_POST['kod']!="" && $_POST['haslo']!="" && $_POST['nowe_haslo']!="") 
+    if (isset($_POST['s_email']) && $_POST['s_login']!="" && $_POST['s_kod']!="" && $_POST['s_haslo']!="" && $_POST['s_nowe_haslo']!="") 
     {     
         // aby uniknąć problemów, przypisujemy zmienne z formularza do zwykłych zmiennych
-        $email = $_POST['email'];
-        $login = $_POST['login'];
-        $kod = $_POST['kod'];
-        $haslo = $_POST['haslo'];
-        $nowe_haslo = $_POST['nowe_haslo'];
+        $email = $_POST['s_email'];
+        $login = $_POST['s_login'];
+        $kod = $_POST['s_kod'];
+        $haslo = $_POST['s_haslo'];
+        $nowe_haslo = $_POST['s_nowe_haslo'];
         // konwersja tekstu na "bezpieczny" dla bazy danych (by nie bylo sql injectow itp)
         $email = addslashes($email);
         $login = addslashes($login);
@@ -30,73 +30,39 @@
         // jesli nie ma takiego loginu, kod jest niepoprawny albo haslo sie nie zgadza, wyswietlamy blędy
         if ($czy_jest_w_bazie[0] == 0) 
         {
-            $bledy[] = 'Niepoprawny Email. // Nie ma takiego Loginu w bazie //';
+            echo '<div class="alert alert-danger" role="alert">Podany Login i Email nie znajdują się w bazie</div>';
         }
         else if ($czy_kod_poprawny[0] != $kod) 
         {
-            $bledy[] = 'Kod niepoprawny !';
+            echo '<div class="alert alert-danger" role="alert">Podano niepoprawny Kod</div>';
         }
-        else if ($haslo != $nowe_haslo)
-        {
-            $bledy[] = 'Hasła się nie zgadzają !';
-        }
-        // jesli wszystko ok, to resetujemy
         else 
         {
             $zmiana_hasla = mysql_query("UPDATE uzytkownicy SET haslo = '$haslo' WHERE uzytkownicy.login = '$login'");
             echo '<div class="alert alert-success" role="alert">Hasło ustawione!</div>';
         }
-    }
-    // dane w formularzu są puste, trzeba dodać błędy
-    // Brak wpisanego emaila
-    if (isset($_POST['email']) && $_POST['email']=="") 
-    {
-        $bledy[] = "Nie podano Emailu";
-    }
-    // Brak wpisanego loginu
-    if (isset($_POST['login']) && $_POST['login']=="")
-    {
-        $bledy[] = "Nie podano Loginu";
-    }
-    //Brak kodu
-    if (isset($_POST['kod']) && $_POST['kod']=="") 
-    {
-        $bledy[] = "Nie podano Kodu";
-    }
-    //Brak wpisanego hasł
-    if (isset($_POST['haslo']) && $_POST['haslo']=="") 
-    {
-        $bledy[] = "Nie podano Hasła";
-    }
-    //Brak powtórzonego hasła
-    if (isset($_POST['nowe_haslo']) && $_POST['nowe_haslo']=="") 
-    {
-        $bledy[] = "Nie powtórzono Hasła";
-    }
-    // wyświetlenie zawartości tablicy z błędami    
+    }  
 ?>
     
     <div id="logowanie" class="row">
         <legend>Ustaw Nowe Hasło</legend>     
-        <form action="?v=tresc/przypomnij_haslo/reset" method="post" accept-charset="utf-8">
+        <form action="?v=tresc/przypomnij_haslo/reset" method="post" id="reset" accept-charset="utf-8">
             <div class="form-group">
-                <input type="text" id="email" class="form-control" name="email" placeholder="Email">
-            </div>
-            <div class="form-group">
-                <input type="text" id="login" class="form-control" name="login" placeholder="Login">
+                <input type="text" id="s_email" class="form-control" name="s_email" placeholder="Email">
             </div>
             <div class="form-group">
-                <input type="text" id="kod" class="form-control" name="kod" placeholder="Kod">
+                <input type="text" id="s_login" class="form-control" name="s_login" placeholder="Login">
             </div>
             <div class="form-group">
-                <input type="text" id="haslo" class="form-control" name="haslo" placeholder="Nowe hasło">
+                <input type="text" id="s_kod" class="form-control" name="s_kod" placeholder="Kod">
             </div>
             <div class="form-group">
-                <input type="text" id="nowe_haslo" class="form-control" name="nowe_haslo" placeholder="Powtórz nowe hasło">
+                <input type="password" id="s_haslo" class="form-control" name="s_haslo" id="s_haslo" placeholder="Nowe hasło">
             </div>
-            <div class="row">
-            <div class="col-md-6"><button type="submit" name="submit" class="btn btn-info btn-block ">Ustaw Nowe Hasło</button></div>
+            <div class="form-group">
+                <input type="password" id="s_nowe_haslo" class="form-control" name="s_nowe_haslo" placeholder="Powtórz nowe hasło">
             </div>
+            <div class=""><button type="submit" name="submit" class="btn btn-info btn-block ">Ustaw Nowe Hasło</button></div>
         </form>		
     </div>
     <?php

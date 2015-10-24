@@ -5,11 +5,11 @@
 <div class="col-md-6">
 <?php
     // sprawdzamy, czy formularz zostal przesłany
-    if (isset($_POST['email']) && $_POST['login']!="") 
+    if (isset($_POST['p_email']) && $_POST['p_login']!="") 
     {     
         // aby uniknąć problemów, przypisujemy zmienne z formularza do zwykłych zmiennych
-        $email = $_POST['email'];
-        $login = $_POST['login'];
+        $email = $_POST['p_email'];
+        $login = $_POST['p_login'];
         // konwersja tekstu na "bezpieczny" dla bazy danych (by nie bylo sql injectow itp)
         $email = addslashes($email);
         $login = addslashes($login);
@@ -23,55 +23,32 @@
         // jesli nie ma takiego loginu albo haslo sie nie zgadza, wyswietlamy blad
         if ($czy_jest_w_bazie[0] == 0) 
         {
-            $bledy[] = 'Niepoprawny Email. // Nie ma takiego Loginu w bazie //';
+            echo '<div class="alert alert-danger" role="alert">Podany Login i Email nie znajdują się w bazie</div>';
         } 
         // jesli wszystko ok, to wysyłamy
         else 
         {
         echo '<div class="alert alert-success" role="alert">Wysłano kod to zresetowania hasła!</div>';
         }
-    }
-    // dane w formularzu są puste, trzeba dodać błędy
-    // Brak wpisanego loginu
-    if (isset($_POST['email']) && $_POST['email']=="") 
-    {
-        $bledy[] = "Nie podano Emailu";
-    }
-    // Brak wpisanego hasła
-    if (isset($_POST['login']) && $_POST['login']=="")
-    {
-        $bledy[] = "Nie podano Loginu";
-    }    
+    }   
 ?>
     
     <div id="logowanie" class="row">
         <legend>Podaj Dane</legend>     
-        <form action="?v=tresc/przypomnij_haslo/przypomnij" method="post" accept-charset="utf-8">
+        <form action="?v=tresc/przypomnij_haslo/przypomnij" id="przypomnij" method="post" accept-charset="utf-8">
             <div class="form-group">
-                <input type="text" id="email" class="form-control" name="email" placeholder="Email">
+                <input type="text" id="email" class="form-control" name="p_email" placeholder="Email">
             </div>
             <div class="form-group">
-                <input type="text" id="password" class="form-control" name="login" placeholder="Login">
+                <input type="text" id="password" class="form-control" name="p_login" placeholder="Login">
             </div>
-            <div class="row">
             <div class="col-md-6"><button type="submit" name="submit" class="btn btn-info btn-block ">Wyślij Kod</button></div>
             <div class="col-md-6"><button type="button" name="wpisz" class="btn  btn-block" 
-                                          onclick="parent.location='index.php?v=tresc/przypomnij_haslo/reset'">Już mam Kod !</button></div>
-            </div>
-            
+                                          onclick="parent.location='index.php?v=tresc/przypomnij_haslo/reset'">Już mam Kod !</button></div>      
         </form>		
     </div>
     <?php
-    // wyświetlenie zawartości tablicy z błędami
-    if (isset($bledy) &&  $bledy[0]!="")
-    {
-        echo '<div class="row alert alert-danger" role="alert">';
-        foreach($bledy as $blad)
-        {
-            echo $blad."<br>";
-        }
-        echo '</div>';
-    }
+    
     ?>
 </div>
 <div class="col-md-6">

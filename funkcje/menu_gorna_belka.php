@@ -11,12 +11,12 @@
         // jeśli użytkownik jest zalogowany to dajemy inny link do strony głownej
         if (zalogowany())
         {
-            echo ('<a class="navbar-brand" href="index.php?v=tresc/strona_glowna">Projekt moodle</a>');
+            echo ("<a class='navbar-brand' href='index.php?v=tresc/strona_glowna'><img src='../img/logo.png'></a>");
         }
         // jeśli nie ma zalogowania, to wyświetlamy standardowe okno logowania
         else
         {
-            echo ('<a class="navbar-brand" href="index.php">Projekt moodle</a>');
+            echo ("<a class='navbar-brand' href='index.php'><img src='img/logo.png'></a>");
         }
                   
         ?>

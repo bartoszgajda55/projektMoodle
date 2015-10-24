@@ -98,17 +98,15 @@
             <div class="form-group">
                 <input type="password" id="password" class="form-control" name="haslo" placeholder="Hasło">
             </div>
-            <div class="">
             <div class="col-md-6"><button type="submit" name="submit" class="btn btn-info btn-block ">Zaloguj</button></div>
             <div class="col-md-6"><button type="button" name="przypomnij" class="btn  btn-block" 
                                           onclick="parent.location='index.php?v=tresc/przypomnij_haslo/przypomnij'">Przypomnij haslo</button></div>
-            </div>    
         </form>		
     </div>
 </div>
 <div class="col-md-6">
-    <h2>Witaj !</h2>
-    <p>Trafiłeś na stronę główną serwisu Moodle'o-podobnego !
-        Możesz zalogować się aby rozpocząć naukę, lub zacząć od rejestracji jeśli jesteś tutaj pierwszy raz.
-    <p>Dwa przyciski na górze pozwolą Ci rozpocząć przygodę z naszym serwisem. Miłej nauki !
+    <h2>Witaj na Moodle!</h2>
+    <p>Trafiłeś na stronę główną Moodle Project!
+        Możesz zalogować się aby rozpocząć naukę, lub zacząć od rejestracji jeśli jesteś tutaj pierwszy raz. Miłej nauki !
+    <p>Dwa przyciski na górze pozwolą Ci rozpocząć przygodę z naszym serwisem.
 </div>
