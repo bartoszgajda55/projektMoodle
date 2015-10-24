@@ -23,49 +23,16 @@
     $id_kursu = $_GET['id_kursu'];
 ?>
 
-<h4>Czy chcesz dodać tego użytkownika </h4>
 <!-- tabelka z userem --------------------------------------------------------------------------------- -->
-<div class="alert alert-warning" role="alert">
- <table class="table"><thead><tr>
-   <th>#id</th><th>Login</th><th>Imie</th><th>Nazwisko</th><th>E-mail</th><th>Typ</th>
-</tr></thead><tbody>
 <?php
-// wyświetlenie użytkownika
-$wynik = mysql_query("SELECT * FROM uzytkownicy WHERE id={$id_usera}");
-    while($r = mysql_fetch_assoc($wynik)) 
-    {
-       // wyświetlamy jeden wiersz z userem          
-        echo '<tr>';
-        echo '<td>'.$r['id'].'</td>';
-        echo '<td>'.$r['login'].'</td>';
-        echo '<td>'.$r['imie'].'</td>';
-        echo '<td>'.$r['nazwisko'].'</td>';
-        echo '<td>'.$r['email'].'</td>';
-        echo '<td><p class="btn btn-primary btn-sm">u</p></td>';
-        echo '</tr>'; 
-    }
+    dany_user($id_usera);
 ?>
-  </tbody></table></div>
-
-<h4> do tego kursu? </h4>
-
 <!-- tabelka z kursem --------------------------------------------------------------------------------- -->
-<div class="alert alert-info" role="alert">
- <table class="table"><thead><tr><th>#id</th><th>Nazwa</th></tr></thead>
-  <tbody>
 <?php
-// wyświetlenie tabeli z kursami
-$wynik = mysql_query("SELECT * FROM kursy WHERE id_kursu={$id_kursu}");
-    while($r = mysql_fetch_assoc($wynik)) 
-    {
-        // wyświetlamy dany kurs z tabeli (tylko jeden)        
-        echo '<tr>';
-        echo '<td>'.$r['id_kursu'].'</td>';
-        echo '<td>'.$r['nazwa'].'</td>';
-        echo '</tr>'; 
-    }
+    dany_kurs($id_kursu);
 ?>
-  </tbody></table></div>
+
+<h4>Czy chcesz dodać tego użytkownika do tego kursu? </h4>
 
 <!-- kod z potwierdzeniem i dodaniem ------------------------------------------------------------------- -->
 <?php

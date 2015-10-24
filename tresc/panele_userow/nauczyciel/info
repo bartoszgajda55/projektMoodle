@@ -1,5 +1,10 @@
 Info odnośnie plików nauczyciela
 
+// n_usun_z_kursu1 to 3 etapowy wizard (kreator)
+ # n_usun_z_kursu1.php    // w pierwszym kroku wybieramy kurs
+    # n_usun_z_kursu2.php // a w drugim uzytkownika, którego chcemy usunąć
+    # n_usun_z_kursu3.php // w trzecim kroku potwierdzamy zmiany
+
+
 n_edycja_kursu - pliki do edycji danego kursu, czyli do zmiany nazwy i kodu dostępu
 
-n_usun_z_kursu - usuwanie użytkownika z danego kursu

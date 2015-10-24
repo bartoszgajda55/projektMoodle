@@ -18,7 +18,7 @@
         if (nauczyciel() || admin())
         {   
             echo "<hr><center><p>Panel Nauczyciela</p></center>";
-            standardowy_przycisk("{$plik}&prawa=tresc/panele_userow/____jakis__adres__1__", "adres111");
+            standardowy_przycisk("{$plik}&prawa=tresc/panele_userow/nauczyciel/n_usun_z_kursu1", "Usuń użytkownika z kursu");
            // standardowy_przycisk("{$plik}&prawa=tresc/panele_userow/____jakis__adres__2__", "Dodaj użytkownika do kursu");
            // standardowy_przycisk("{$plik}&prawa=tresc/panele_userow/____jakis__adres__3__", "Ble ble ble");
         }

@@ -9,6 +9,8 @@
     require_once("funkcje/f_przyciski.php");
     // plik f_uzytkownicy zawiera funkcje, które sprawdzają zalogowanego użytkownika
     require_once("funkcje/f_uzytkownicy.php");
+    // plik f_tabelki_z_bazy zawiera funkcje, które wyświetlają małe, jednowierszowe tabelki z bazy danych
+    require_once("funkcje/f_tabelki_z_bazy.php");
     // podłączenie do bazy danych
     require_once("baza/polaczenie.php");
 ?>

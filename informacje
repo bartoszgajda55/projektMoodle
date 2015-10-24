@@ -63,23 +63,12 @@ Tabele z bazy danych
 
 Do zrobienia:
     - blokowanie / oblokowanie kursu (zablokowany kurs jest jakby usunięty, uczeń go nie widzi) (tylko admin), nie ma plików
-
-    - usuwanie użytkowników z kursu (nauczyciel | admin)
     - wyświetlenie/zmiana kodu kursu oraz zmiana nazwy kursu (nauczyciel | admin)
 (są pliki w folderze nauczyciel)
    
-
- Usuwanie użytkowników z kursu - 3 krokowy wizard
-     : sprawdzamy, czy to nauczyciel, jeśli tak to wyświetlamy tylko jego kursy
-     : jeśli jednak to admin, to wyświetlamy wszystkie kursy
-        : po wybraniu kursu przechodzimy na drugą stronę, gdzie wyświetlają się użytkownicy w tym kursie
-        : możemy ich łatwo usunąć (z potwierdzeniem (krok nr 3))
 
 
 Wyświetlenie/zmiana kodu kursu oraz zmiana nazwy kursu
     : jeśli nauczyciel, wyświetlamy tylko jego kursy
     : jeśli admin, wyświetlamy wszystkie kursy
         : w drugim kroku można zmienić kod lub nazwę kursu
-
-
- 
