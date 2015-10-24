@@ -61,18 +61,16 @@ Tabele z bazy danych
 
 
 
-
-
 Do zrobienia:
- - admin -  zarzadzanie
+ - Tworzenie kursów przez nauczyciela
+ - Dodawanie lekcji przez nauczyciela do swoich kursów
+ - Dołączanie uczniów do kursów przez admina
+
+
  - nauczyciel - zarządzanie
  - uczeń - te zmiany hasla itp i ble ble
 
- - przypomnij haslo
- - wygląd formularzy
 
  - tworzenie kursow
- - wyświetlanie kursów
  - dołączanie do kursu
  - dodawanie lekcji do kursu
- - i ble ble ble
