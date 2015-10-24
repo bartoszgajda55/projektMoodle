@@ -1945,6 +1945,8 @@ pre code {
 @media (min-width: 992px) {
   .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
     float: left;
+    padding-left: 50px;
+    padding-right: 50px;
   }
   .col-md-12 {
     width: 100%;
@@ -1965,7 +1967,7 @@ pre code {
     width: 58.33333333%;
   }
   .col-md-6 {
-    width: 50%;
+    width: 50%;  
   }
   .col-md-5 {
     width: 41.66666667%;
@@ -5081,7 +5083,7 @@ a.thumbnail.active {
 }
 .alert {
   padding: 15px;
-  margin-bottom: 20px;
+  margin-top: 20px;
   border: 1px solid transparent;
   border-radius: 4px;
 }

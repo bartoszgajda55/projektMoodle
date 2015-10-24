@@ -2,8 +2,7 @@
      Skrypt sprawdza poprawność formularza i wysłanych w nim danych
      Następnie loguje, ustawiając odpowiednie wartości zmiennym $_SESSION
 --->
-<div class="col-md-2"></div>
-<div class="col-md-8">
+<div class="col-md-6">
 <?php
     // sprawdzamy, czy formularz zostal przesłany
     if (isset($_POST['login']) && $_POST['login']!="") 
@@ -24,7 +23,7 @@
         // jesli nie ma takiego loginu albo haslo sie nie zgadza, wyswietlamy blad
         if ($czy_zaloguje[0] == 0) 
         {
-            $bledy[] = 'Niepoprawne dane logownia. // Nie ma takiego usera w bazie //';
+            $bledy[] = 'Niepoprawne dane logownia !';
         } 
         // jesli wszystko ok, to logujemy
         else 
@@ -107,4 +106,9 @@
         </form>		
     </div>
 </div>
-<div class="col-md-2"></div>
+<div class="col-md-6">
+    <h2>Witaj !</h2>
+    <p>Trafiłeś na stronę główną serwisu Moodle'o-podobnego !
+        Możesz zalogować się aby rozpocząć naukę, lub zacząć od rejestracji jeśli jesteś tutaj pierwszy raz.
+    <p>Dwa przyciski na górze pozwolą Ci rozpocząć przygodę z naszym serwisem. Miłej nauki !
+</div>
