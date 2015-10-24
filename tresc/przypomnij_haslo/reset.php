@@ -74,16 +74,7 @@
     {
         $bledy[] = "Nie powtórzono Hasła";
     }
-    // wyświetlenie zawartości tablicy z błędami
-    if (isset($bledy) &&  $bledy[0]!="")
-    {
-        echo '<div class="alert alert-danger" role="alert">';
-        foreach($bledy as $blad)
-        {
-            echo $blad."<br>";
-        }
-        echo '</div>';
-    }
+    // wyświetlenie zawartości tablicy z błędami    
 ?>
     
     <div id="logowanie" class="row">
@@ -109,5 +100,16 @@
             </div>
         </form>		
     </div>
+    <?php
+    if (isset($bledy) &&  $bledy[0]!="")
+    {
+        echo '<div class="alert alert-danger" role="alert">';
+        foreach($bledy as $blad)
+        {
+            echo $blad."<br>";
+        }
+        echo '</div>';
+    }
+    ?>
 </div>
 <div class="col-md-2"></div>

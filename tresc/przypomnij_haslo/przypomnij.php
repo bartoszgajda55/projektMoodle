@@ -42,17 +42,7 @@
     if (isset($_POST['login']) && $_POST['login']=="")
     {
         $bledy[] = "Nie podano Loginu";
-    }
-    // wyświetlenie zawartości tablicy z błędami
-    if (isset($bledy) &&  $bledy[0]!="")
-    {
-        echo '<div class="alert alert-danger" role="alert">';
-        foreach($bledy as $blad)
-        {
-            echo $blad."<br>";
-        }
-        echo '</div>';
-    }
+    }    
 ?>
     
     <div id="logowanie" class="row">
@@ -72,5 +62,17 @@
             
         </form>		
     </div>
+    <?php
+    // wyświetlenie zawartości tablicy z błędami
+    if (isset($bledy) &&  $bledy[0]!="")
+    {
+        echo '<div class="row alert alert-danger" role="alert">';
+        foreach($bledy as $blad)
+        {
+            echo $blad."<br>";
+        }
+        echo '</div>';
+    }
+    ?>
 </div>
 <div class="col-md-2"></div>
