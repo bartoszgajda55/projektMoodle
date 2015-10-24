@@ -8,12 +8,12 @@
     // użytkownik się zarejstrował
     if (isset($_GET['zarejestrowano']) && $_GET['zarejestrowano']=="tak")
     {
-        echo ('<p class="btn-lg bg-success">Zarejestrowano pomyślnie</p><hr>');
+        echo ('<div class="alert alert-info">Zarejestrowano pomyślnie</div><hr>');
     }
     // użytkownik się zalogował
     else if (isset($_GET['zalogowano']) && $_GET['zalogowano']=="tak")
     {
-        echo ('<p class=" btn-lg bg-info">Zalogowano pomyślnie</p><hr>');
+        echo ('<div class="alert alert-info">Zalogowano pomyślnie</div><hr>');
     }
 
 ?>

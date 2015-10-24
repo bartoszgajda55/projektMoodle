@@ -1,22 +1,24 @@
-<div class="col-md-2"></div>
 <div class="col-md-8">
         <div id="logowanie" class="row">
         <legend>Rejestracja</legend>     
-        <form action="?v=tresc/rejestracja/rejestracja" method="post" accept-charset="utf-8">
+        <form action="?v=tresc/rejestracja/rejestracja" id="rejestracja" method="post" accept-charset="utf-8">
             <div class="form-group">
-                <input type="text" id="login" class="form-control" name="login" placeholder="Login" value="<?=@$_POST['login']?>">
+                <input type="text" id="login" class="form-control" name="r_login" placeholder="Login" value="">
             </div>
             <div class="form-group">
-                <input type="password" id="password1" class="form-control" name="haslo1" placeholder="Hasło" >
+                <input type="password" id="password1" class="form-control" name="r_haslo1" placeholder="Hasło" >
             </div>
             <div class="form-group">
-                 <input type="password" id="password2" class="form-control" name="haslo2" placeholder="Powtórz hasło">
+                 <input type="password" id="password2" class="form-control" name="r_haslo2" placeholder="Powtórz hasło">
             </div>
             <div class="form-group">
-                <input type="text" id="imie" class="form-control" name="imie" placeholder="Imię" value="<?=@$_POST['imie']?>">
+                <input type="email" id="email" class="form-control" name="r_email" placeholder="Email" value="<?=@$_POST['email']?>">
             </div>
             <div class="form-group">
-                <input type="text" id="nazwisko" class="form-control" name="nazwisko" placeholder="Nazwisko" value="<?=@$_POST['nazwisko']?>" >
+                <input type="text" id="imie" class="form-control" name="r_imie" placeholder="Imię" value="<?=@$_POST['imie']?>">
+            </div>
+            <div class="form-group">
+                <input type="text" id="nazwisko" class="form-control" name="r_nazwisko" placeholder="Nazwisko" value="<?=@$_POST['nazwisko']?>" >
             </div>	
             <button type="submit" name="submit" class="btn btn-danger btn-block ">Rejestracja</button>
             
@@ -37,8 +39,8 @@ if (zalogowano())
     $bledy;
     $licznik_bledow = 0;
 // sprawdzamy, czy pola zostały wypełnione
-if(!isset($_POST['login']) || !isset($_POST['haslo1']) || !isset($_POST['imie']) || !isset($_POST['nazwisko'])
-       || $_POST['login']=="" || $_POST['haslo1']=="" || $_POST['imie']=="" || $_POST['nazwisko']=="")
+if(!isset($_POST['r_login']) || !isset($_POST['r_haslo1']) || !isset($_POST['r_imie']) || !isset($_POST['r_nazwisko']) || !isset($_POST['r_email'])
+       || $_POST['r_login']=="" || $_POST['r_haslo1']=="" || $_POST['r_imie']=="" || $_POST['r_nazwisko']=="" || $_POST['r_email']=="")
 {
     $bledy[] = "Wypełnij wszystkie pola";
     $licznik_bledow++;
@@ -54,10 +56,11 @@ else if (isset($_POST['haslo1']) && $_POST['haslo1']!=$_POST['haslo2'])
 if($licznik_bledow == 0) 
 {
     // usuwamy znaki specjalne z pól, dla bezpieczeństwa
-    $login=htmlentities($_POST['login']);
-    $haslo=htmlentities($_POST['haslo1']);
-    $imie=htmlentities($_POST['imie']);
-    $nazwisko=htmlentities($_POST['nazwisko']);
+    $login=htmlentities($_POST['r_login']);
+    $haslo=htmlentities($_POST['r_haslo1']);
+    $imie=htmlentities($_POST['r_imie']);
+    $nazwisko=htmlentities($_POST['r_nazwisko']);
+    $email=htmlentities($_POST['r_email']);
     
     // sprawdzamy, czy przypadkiem nie istenieje użytkownik z takim loginem
     if($rezultat=mysql_query("SELECT * FROM uzytkownicy WHERE login='$login'")) 
@@ -66,7 +69,7 @@ if($licznik_bledow == 0)
         if(mysql_num_rows($rezultat) == 0)
         {
             // wstawiamy dane do tabeli. Sprawdzamy, czy wszystko się udaje
-            if(mysql_query("INSERT INTO uzytkownicy (login, haslo, imie, nazwisko, typ) VALUES ('$login','$haslo','$imie','$nazwisko','u')")===TRUE)
+            if(mysql_query("INSERT INTO uzytkownicy (login, haslo, imie, nazwisko, typ, email) VALUES ('$login','$haslo','$imie','$nazwisko','u','$email')")===TRUE)
             {
                 $rejestracja_pomyslna = TRUE;
             }
@@ -100,19 +103,15 @@ if($licznik_bledow == 0)
         // przekierowanie użytkownika na stronę z informacjami
         header("Location: index.php?v=tresc/strona_glowna&zarejestrowano=tak");
     }
-}
-
-// wyświetlenie zawartości tablicy z błędami
-if (isset($bledy) &&  $bledy[0]!="")
-{
-    echo '<div class="alert alert-danger" role="alert">';
-    foreach($bledy as $blad)
+    if (isset($bledy) &&  $bledy[0]!="")
     {
-        echo $blad."<br>";
+        echo '<div class="alert alert-danger" role="alert">';
+        foreach($bledy as $blad)
+        {
+            echo $blad."<br>";
+        }
+        echo '</div>';
     }
-    echo '</div>';
 }
 ?>
-</div>
-<div align="center" class="col-md-2">
 </div>
