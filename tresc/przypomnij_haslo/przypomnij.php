@@ -2,8 +2,7 @@
      Skrypt sprawdza poprawność formularza i wysłanych w nim danych
      Następnie loguje, ustawiając odpowiednie wartości zmiennym $_SESSION
 --->
-<div class="col-md-2"></div>
-<div class="col-md-8">
+<div class="col-md-6">
 <?php
     // sprawdzamy, czy formularz zostal przesłany
     if (isset($_POST['email']) && $_POST['login']!="") 
@@ -46,7 +45,7 @@
 ?>
     
     <div id="logowanie" class="row">
-        <legend>Przypomnij Hasło</legend>     
+        <legend>Podaj Dane</legend>     
         <form action="?v=tresc/przypomnij_haslo/przypomnij" method="post" accept-charset="utf-8">
             <div class="form-group">
                 <input type="text" id="email" class="form-control" name="email" placeholder="Email">
@@ -75,4 +74,9 @@
     }
     ?>
 </div>
-<div class="col-md-2"></div>
+<div class="col-md-6">
+    <h2>Resetowanie Hasła</h2><br>
+    <p>Aby zresetować swoje hasło musisz podaj najpierw dane które ułatwią nam identyfikację Ciebie w bazie danych.
+        Potem, na Twój adres email zostanie wysłany kod, który umożliwi Ci ustawienie nowego hasła.
+    <p>Jeśli już otrzymałeś swój kod, przejdź dalej przyciskiem "Już mam kod".
+</div>
