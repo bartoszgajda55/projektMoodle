@@ -33,7 +33,7 @@
                 // jeśli zalogowano jako admin lub nauczyciel, to wyświetlamy przycisk z zarządzniem kursami
                 if (admin() || nauczyciel())
                 {
-                    standardowy_przycisk("?v=tresc/panele_userow/panel_glowny&prawa=tresc/panele_userow/____jakis__adres__1__", "Zarządzanie kursami", 0);
+                    standardowy_przycisk("?v=tresc/panele_userow/panel_glowny&prawa=tresc/panele_userow/nauczyciel/n_usun_z_kursu1", "Zarządzanie kursami", 0);
                 }
                 // jeśli zalogowano jako użytkownik to wyświetlamy przycisk "Moje kursy"
                 else

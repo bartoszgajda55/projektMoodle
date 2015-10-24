@@ -13,20 +13,22 @@
         // przyciski do podstron
         standardowy_przycisk("{$plik}&prawa=tresc/panele_userow/uczen/u_info", "Główne informacje");
         standardowy_przycisk("{$plik}&prawa=tresc/panele_userow/uczen/u_zmiana_hasla", "Zmiana hasła");
-        //standardowy_przycisk("{$plik}&prawa=____KOLEJNY__ADRES____", "Kolejny przycisk");
+
+        
         // jeśli jesteśmy nauczycielem lub adminem, mamy dostęp do dodatkowych opcji (przycisków)
         if (nauczyciel() || admin())
         {   
             echo "<hr><center><p>Panel Nauczyciela</p></center>";
             standardowy_przycisk("{$plik}&prawa=tresc/panele_userow/nauczyciel/n_usun_z_kursu1", "Usuń użytkownika z kursu");
-           // standardowy_przycisk("{$plik}&prawa=tresc/panele_userow/____jakis__adres__2__", "Dodaj użytkownika do kursu");
-           // standardowy_przycisk("{$plik}&prawa=tresc/panele_userow/____jakis__adres__3__", "Ble ble ble");
+            
+            
         }
         if (admin())
         {
             echo "<hr><center><p>Panel Administratora</p></center>";
             standardowy_przycisk("{$plik}&prawa=tresc/panele_userow/admin/a_zarzadzanie_uzytkownikami", "Zarządzanie użytkownikami");
             standardowy_przycisk("{$plik}&prawa=tresc/panele_userow/admin/a_dodawanie_usera_do_kursu1", "Dodaj użytkownika do kursu");
+            standardowy_przycisk("{$plik}&prawa=tresc/panele_userow/admin/a_zablokuj_kurs1", "Blokada kursu");
         }
         
         ?>

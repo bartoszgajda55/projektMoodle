@@ -11,3 +11,6 @@ Informacje odnośnie plików, co który tutaj robi
     # a_dodawanie usera_do_kursu2
     # a_dodawanie usera_do_kursu3
 
+// blokowanie kursów
+# a_zablokuj_kurs1 // wyświetla listę kursów z przyciskami do zablokowania. 
+

@@ -62,13 +62,21 @@ Tabele z bazy danych
 
 
 Do zrobienia:
-    - blokowanie / oblokowanie kursu (zablokowany kurs jest jakby usunięty, uczeń go nie widzi) (tylko admin), nie ma plików
-    - wyświetlenie/zmiana kodu kursu oraz zmiana nazwy kursu (nauczyciel | admin)
-(są pliki w folderze nauczyciel)
-   
+    - wyświetlenie kursów oraz edycja ich kodów i tytułów (nauczyciel | admin)
+    (są stworzone pliki w folderze nauczyciel) n_edycja_kursu1 i 2
 
+    - tworzenie nowego kursu przez nauczyciela (admin nie może tego robić)
+    - dodawanie lekcji (tematów) do danego kursu przez nauczyciela
 
-Wyświetlenie/zmiana kodu kursu oraz zmiana nazwy kursu
+Wyświetlenie kursów oraz edycja ich kodów i tytułów
     : jeśli nauczyciel, wyświetlamy tylko jego kursy
     : jeśli admin, wyświetlamy wszystkie kursy
-        : w drugim kroku można zmienić kod lub nazwę kursu
+        : w drugim kroku można zmienić kod dostępu lub nazwę kursu
+
+Dodawanie lekcji (tematów) do danego kursu przez nauczyciela
+    : admin może dodawać tematy do jakiego chce kursu
+    : nauczyciel może dodawać tematy tylko do swoich kursów
+
+Tworzenie nowego kursu przez nauczyciela
+    : nowy kurs może tylko robić nauczyciel
+    : admin nie może tutaj nic robić, blokada wejścia i stosowny komunikat
