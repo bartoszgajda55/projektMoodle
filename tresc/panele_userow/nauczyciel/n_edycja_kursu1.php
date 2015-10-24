@@ -1,7 +1,3 @@
-Tylko admin moze dodawać użytkownika do kursu<br>
-<hr>
-
-
 <?php
 
 /* 

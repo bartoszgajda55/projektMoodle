@@ -1,5 +1,3 @@
-Plik dla admina<br>
-Zarządzanie kursami - nie wiadomo co ma robić, ale być musi
 <?php
 
 /* 

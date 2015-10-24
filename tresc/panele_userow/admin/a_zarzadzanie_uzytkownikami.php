@@ -2,6 +2,9 @@
     Awansowanie na nauczyciela, degradacja do ucznia
     blokowanie i odblokowywanie użytkownika
 -->
+<?php // sprawdzamy uprawnienia do przeglądania pliku
+    if (!admin()) return;
+?>
 <h2>Zarządzanie użytkownikami</h2>
 <hr>
  <table class="table">

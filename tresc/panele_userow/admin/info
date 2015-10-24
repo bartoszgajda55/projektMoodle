@@ -1,0 +1,13 @@
+Informacje odnośnie plików, co który tutaj robi
+
+// Zarządzanie RANGĄ użytkownika (uczeń, nauczyciel, blokada, usunięcie blokady)
+# a_zarzadzanie_uzytkownikami
+    # a_degraduj_na_ucznia
+    # a_mianuj_na_nauczyciela
+    # a_zablokuj_odblokuj
+
+// dodawanie użytkownika do kursu, 3 krokowy wizard
+# a_dodawanie usera_do_kursu1
+    # a_dodawanie usera_do_kursu2
+    # a_dodawanie usera_do_kursu3
+

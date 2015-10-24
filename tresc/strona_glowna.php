@@ -20,6 +20,10 @@
     <h3>Witaj <?=$_SESSION['imie']?> <?=$_SESSION['nazwisko']?></h3>
       
 Ble ble ble - główna strona z informacjami dla uzytkownika.
-
+<br>
+<?php
+$data = date("Y-m-d");
+echo $data;
+?>
   </div>
         <div class="col-md-2"></div>
