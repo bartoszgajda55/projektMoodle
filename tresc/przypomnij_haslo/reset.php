@@ -116,5 +116,5 @@
     <p>Jeśli dotarłeś na tą stronę, to znaczy że otrzymałeś już swój unikalny kod.
         Wpisz go koniecznie, bez niego proces zmiany hasła nie powiedzie sie.
     <p>Uważnie wpisz swoje nowe hasło. I koniecznie zapamiętaj, każdy nowy kod kosztuje 2,46 zł + VAT.<br>
-        <img src="../../img/zyd.jpg">
+    <center><img src="img/zyd.jpg" height='300'></center>
 </div>
