@@ -42,6 +42,18 @@
     <h3><a href="?v=tresc/u_kursy/lista_kursow_uzytkownika"><?=$nazwa_kursu?></a></h3>
     Lista lekcji w kursie
     <hr>
+    <?php
+        // komunikaty z pliku dolacz_do_kursu.php
+        if (isset($_GET['dodano']) && $_GET['dodano']=="tak")
+        {
+            echo '<div class="alert alert-success" role="alert">Zostałeś dodany do tego kursu pomyślnie</div>';
+        }
+        else if (isset($_GET['dodano']) && $_GET['dodano']=="nalezysz")
+        {
+            echo '<div class="alert alert-info" role="alert">Należysz już do tego kursu</div>';
+        }
+    ?>
+    
     <table class="table">
         <thead>
             <tr>

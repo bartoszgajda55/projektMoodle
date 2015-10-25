@@ -1,3 +1,5 @@
-lista_kursow_uzytkownika - wszystkie kursy uzytkownika
-    lista_lekcji - spis treści lekcji
-        dana_lekcja - wyświetlenie danej lekcji
+# lista_kursow_uzytkownika - wszystkie kursy uzytkownika
+    # lista_lekcji - spis treści lekcji
+        # dana_lekcja - wyświetlenie danej lekcji
+
+# dolacz_do_kursu - użytkownik podaje kod i dołacza do kursu
