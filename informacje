@@ -62,21 +62,13 @@ Tabele z bazy danych
 
 
 Do zrobienia:
-    - wyświetlenie kursów oraz edycja ich kodów i tytułów (nauczyciel | admin)
-    (są stworzone pliki w folderze nauczyciel) n_edycja_kursu1 i 2
+    - możliwość zapisania się do kursu przez ucznia tajnym kodem
+    - dodawanie lekcji do danego kursu przez nauczyciela
+    - edycja lekcji
+    - dodawanie plików przez nauczyciela do lekcji
+    - dodawanie plików przez uzytkownika do lekcji
+    
 
-    - tworzenie nowego kursu przez nauczyciela (admin nie może tego robić)
-    - dodawanie lekcji (tematów) do danego kursu przez nauczyciela
-
-Wyświetlenie kursów oraz edycja ich kodów i tytułów
-    : jeśli nauczyciel, wyświetlamy tylko jego kursy
-    : jeśli admin, wyświetlamy wszystkie kursy
-        : w drugim kroku można zmienić kod dostępu lub nazwę kursu
-
-Dodawanie lekcji (tematów) do danego kursu przez nauczyciela
+Dodawanie lekcji do danego kursu przez nauczyciela
     : admin może dodawać tematy do jakiego chce kursu
     : nauczyciel może dodawać tematy tylko do swoich kursów
-
-Tworzenie nowego kursu przez nauczyciela
-    : nowy kurs może tylko robić nauczyciel
-    : admin nie może tutaj nic robić, blokada wejścia i stosowny komunikat

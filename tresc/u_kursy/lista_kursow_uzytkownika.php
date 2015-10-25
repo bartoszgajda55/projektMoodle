@@ -14,7 +14,7 @@
 <?php
 // wyświetlenie tabeli z kursami
 // zpaytanie, które wyświetla kursy (wraz z nazwami) do których jest zapisany uzytkownik
-$wynik = mysql_query("SELECT * FROM `zapisy` INNER JOIN kursy ON zapisy.id_kursu = kursy.id_kursu WHERE zapisy.id_uzytkownika={$_SESSION['id_usera']}");
+$wynik = mysql_query("SELECT * FROM `zapisy` INNER JOIN kursy ON zapisy.id_kursu = kursy.id_kursu WHERE zapisy.id_uzytkownika={$_SESSION['id_usera']} AND stan='dobry'");
     while($r = mysql_fetch_assoc($wynik)) 
     {
         // zapytanie i pętla
