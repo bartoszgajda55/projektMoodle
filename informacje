@@ -1,4 +1,4 @@
-Plik z ogólnymi informacjami
+Plik z ogólnymi informacjami, mini dokumentacja projektu
 
 Nazwy zmiennych sesyjnych;
     $_SESSION['zalogowany']; - przechowuje TRUE, jeśli uzytkownik jest zalogowany
@@ -19,6 +19,14 @@ Funkcje:
          - drugi argument to nazwa wyświetlana na przycisku
          - trzeci argument jest opcjonalny. Gdy ustawimy go na 0 to przycisk nie będzie podświetlany
 
+    dany_kurs($id, $kolor="info") - wyświetla informację o jednym (podanym w id) kursie
+        - pierwszy argument $id to id_kursu
+        - drugi rargument opcjonalny, określa kolor komunikatu (success, warning, danger, info, itd)
+
+    dany_user($id, $kolor="warning") - wyświetla informację o jednym (podanym w id) userze
+        - pierwszy argument $id to id użytkownika
+        - drugi rargument opcjonalny, określa kolor komunikatu (success, warning, danger, info, itd)
+
     zalogowany() - zwraca TRUE jeśli użytkownik jest zalogowany, w przeciwnym wypadku FALSE
     zalogowano() - to samo co wyżej, tylko inna nazwa
     admin() - zwraca TRUE jeśli zalogowany jest admin, w przeciwnym wypadku FALSE
@@ -37,37 +45,80 @@ Struktura katalogów: (@ - to folder; # - to plik)
       - prefix f_ oznacza, że plik zawiera funkcje
         # f_include.php - plik z funkcjami do podłączania plików
         # f_przyciski.php - funkcje wyświetlające przyciski (linki)
+        # f_tabelki_z_bazy.php - funckje wyświetlające tabelkę o użytkowniku lub o kursie
         # f_uzytkownicy.php - funkcje sprawdzające stan zalogowania użytkownika
         # head.php - plik z <head> storny z <html>
         # menu_gorna_belka.php - menu z górną belką, która wyświetla się na każdej stronie
 
+    @ img - folder z obrazkami
+
     @ tresc - folder z treścią, czyli papu dla całej powierzchni strony
-        @ kursy - 
         @ logowanie - zawiera formularz logowania i skrypt wylogowania
             # logowanie.php - formularz logowania wraz ze skryptem logowania
             # wyloguj.php - kasuje sesję i wylogowywuje użytkownika
-        @ panele_userow - 
+        @ panele_userow - zawiera panel użytkownika z podstronami
+            @ admin - zawiera funkcje panelu tylko dla administratora
+                # a_degraduj_na_ucznia.php - 
+                # a_dodawanie_usera_do_kursu1.php - 
+                # a_dodawanie_usera_do_kursu2.php - 
+                # a_dodawanie_usera_do_kursu3.php - 
+                # a_mianuj_na_nauczyciela.php - 
+                # a_zablokuj_kurs1.php - 
+                # a_zablokuj_odblokuj.php - 
+                # a_zarzadzanie_uzytkowniakmi.php - 
+            @ nauczyciel - zawiera funkcje panelu dla nauczyciela a także i dla administratora
+                # n_edycja_kursu.php - 
+                # n_lista_kursow.php - 
+                # n_stworz_kurs.php - 
+                # n_usun_z_kursu1.php - 
+                # n_usun_z_kursu2.php - 
+                # n_usun_z_kursu3.php - 
+            @ uczen - zawiera funkcje panelu dla ucznia, nauczyciela i administratora
+                # u_info.php - 
+                # u_zmiana_hasla.php - 
+            # panel_glowny.php - główny panel z menu po lewej i z miejscem do wyświetlania informacji z prawej
+        @ przypomnij_haslo - zawiera pliki służące do przypominania hasła
+            # przypomnij.php - 
+            # reset.php - 
         @ rejestracja - pliki z formularzami i skryptami do rejstracji
             # rejestracja.php - formularz i skrypt rejestracji użytkownika
-        
+        @ u_kursy - kursy danego użytkownika (ucznia)
+            # dana_lekcja.php - 
+            # dolacz_mnie_do_kursu.php - 
+            # lista_kursow_uzytkownika.php - 
+            # lista_lekcji.php - 
+
         # strona_glowna.php - treść z główną stroną wyświetlaną po wejściu na witrynę (na razie nie działa)
 
     # index.php - główny plik który jest uruchamiany po odpaleniu strony
     # informacje - plik z informacjami
 
+
 Tabele z bazy danych
+ - kursy
+    | id_kursu | id_zalozyciela | nazwa | klucz_dostepu | stan |
+
+ - lekcje
+    | id_lekcji | id_kursu | temat | tresc | plik_nauczyciela |
+
+ - uzytkownicy
+    | id | login | haslo | imie | nazwisko | typ | email | reset_hasla |
+
+ - zapisy
+    | id_zapisu | id_uzytkownika | id_kursu | data_zapisu | plik_uzytkownika |
+
 
 
 
 
 
 Do zrobienia:
-    - dodawanie lekcji do danego kursu przez nauczyciela
-    - edycja lekcji
+    - dodawanie lekcji do danego kursu przez nauczyciela lub admina
+    - edycja lekcji przez nauczyciela lub admina
     - dodawanie plików przez nauczyciela do lekcji
     - dodawanie plików przez uzytkownika do lekcji
     
 
-Dodawanie lekcji do danego kursu przez nauczyciela
+Dodawanie lekcji do danego kursu przez nauczyciela lub admina
     : admin może dodawać tematy do jakiego chce kursu
     : nauczyciel może dodawać tematy tylko do swoich kursów
