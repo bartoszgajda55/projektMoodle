@@ -2,29 +2,24 @@
     <small>Wybierz użytkownika</small></h3>
 <?php // sprawdzamy uprawnienia do przeglądania pliku
     if (!admin()) return;
-?>
-<?php
+
     // wyświetlenie informacji o powodzeniu lub porażce
     if (isset($_GET['sukces']))
     {
         $sukces = $_GET['sukces'];
         if($sukces=="tak")
-        {
-            // udało się dodać użytkownika
-            echo '<div class="alert alert-success" role="alert">Użytkownik został pomyślnie dodany do kursu</div>';
+        {   // udało się dodać użytkownika
+            komunikat("Użytkownik został pomyślnie dodany do kursu", "success");
         }
         else if($sukces=="nie")
-        {
-            // anulowano dodawanie
-            echo '<div class="alert alert-danger" role="alert">Anulowano operację dodania użytkownika</div>';
+        {   // anulowano dodawanie
+            komunikat("Anulowano operację dodania użytkownika", "danger");
         }
         else if($sukces=="byl_dodany")
-        {
-            // użytkownik był już dodany do kursu
-            echo '<div class="alert alert-info" role="alert">Użytkownik już należy do kursu</div>';
+        {   // użytkownik był już dodany do kursu
+            komunikat("Użytkownik już należy do kursu", "info");
         }
     }
-
 ?>
  <table class="table">
   <thead>

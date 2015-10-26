@@ -2,18 +2,23 @@
     Dodawanie użytkownika do kursu, krok <b>2/3</b>
     <a class="btn btn-default" href="index.php?v=tresc/panele_userow/panel_glowny&prawa=tresc/panele_userow/admin/a_dodawanie_usera_do_kursu1" role="button">Wstecz</a>
     <hr>
-    <small>Wybierz kurs</small>
+    
 </h3>
-<?php // sprawdzamy uprawnienia do przeglądania pliku
+<?php 
+    // sprawdzamy uprawnienia do przeglądania pliku
     if (!admin()) return;
     // sprawdzamy, czy są przesyłane odpowiednie zmienne GET
-    if(!isset($_GET['id_usera'])) 
+    if(!isset($_GET['id_usera']) || $_GET['id_usera']=="") 
     {
         echo "Brak odpowiednich zmiennych w pasku adresu";
         return;
     }
+    
+    // wyświetlenie tabelki z info o użytkowniku
+    dany_user($_GET['id_usera']);
+    
 ?>
-
+<h3><small>Wybierz kurs</small></h3>
  <table class="table">
   <thead>
     <tr>

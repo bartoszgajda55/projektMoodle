@@ -21,4 +21,10 @@ function standardowy_przycisk($adres, $tresc, $podswietlenie=1)
     }  
 }
 
+// wyświetla komunikat o błędzie lub powodzeniu
+function komunikat($tresc, $kolor="info")
+{
+    echo '<div class="alert alert-'.$kolor.'" role="alert">'.$tresc.'</div>';
+}
+
 ?>
