@@ -1,3 +1,4 @@
+<!-- kod ten jest nawiedzony. Lepiej go nie zmieniać, ani nie edytować. W obecnym stanie dziala idealnie. Czytać w obecności księdza -->
 <h3>Zablokuj / Odblokuj</h3><hr>
 <?php
     // tutaj może przebywać tylko admin

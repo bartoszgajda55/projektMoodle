@@ -40,6 +40,11 @@ function dany_user($id, $kolor="warning")
     $wynik = mysql_query("SELECT * FROM uzytkownicy WHERE id={$id}");
     while($r = mysql_fetch_assoc($wynik)) 
     {
+        // ustawiamy odpowiednią ikonkę typu
+        if($r['typ']=="a") $typp = '<p class="btn btn-default">a</p>';
+        else if($r['typ']=="n") $typp = '<p  class="btn btn-warning">n</p>';
+        else if($r['typ']=="u") $typp = '<p class="btn btn-primary">u</p>';
+        else if($r['typ']=="blocked") $typp = '<p class="btn btn-danger">X</p>';
        // wyświetlamy jeden wiersz z userem          
         echo '<tr>';
         echo '<td>'.$r['id'].'</td>';
@@ -47,7 +52,7 @@ function dany_user($id, $kolor="warning")
         echo '<td>'.$r['imie'].'</td>';
         echo '<td>'.$r['nazwisko'].'</td>';
         echo '<td>'.$r['email'].'</td>';
-        echo '<td><p class="btn btn-primary btn-sm">u</p></td>';
+        echo '<td>'.$typp.'</td>';
         echo '</tr>'; 
     }
 

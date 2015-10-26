@@ -57,9 +57,9 @@ $wynik = mysql_query("SELECT * FROM uzytkownicy");
         // wyświetlamy możliwość zablokowania lub odblokowania
         if($r['typ']=="blocked")
         {
-            $blokada = '<a href="'.$adres_pliku.'&prawa=tresc/panele_userow/admin/a_zablokuj_odblokuj&id='.$id.'" type="button" class="btn btn-success">Odblokuj</a>';
+            $blokada = '<a href="'.$adres_pliku.'&prawa=tresc/panele_userow/admin/a_zablokuj_odblokuj&id='.$id.'&stan=odblokuj" type="button" class="btn btn-success">Odblokuj</a>';
         }
-        else $blokada = '<a href="'.$adres_pliku.'&prawa=tresc/panele_userow/admin/a_zablokuj_odblokuj&id='.$id.'" type="button" class="btn btn-danger">Zablokuj</a>';
+        else $blokada = '<a href="'.$adres_pliku.'&prawa=tresc/panele_userow/admin/a_zablokuj_odblokuj&id='.$id.'&stan=zablokuj" type="button" class="btn btn-danger">Zablokuj</a>';
         
         // podświetlamy wiersz z użytkownikiem, który właśnie został zmodyfikowany (warning to kolor żółty)
         if (isset($_GET['id']) && $_GET['id']==$id)

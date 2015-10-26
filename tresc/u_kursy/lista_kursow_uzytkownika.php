@@ -1,6 +1,5 @@
 <!-- Plik zawiera listę kursów do których dany użytkownik ma dostęp -->
-<div class="col-md-2"></div>
-<div class="col-md-8">
+<div class="col-md-10">
     <h3>Lista kursów, do których masz dostęp</h3><hr>
  <table class="table">
   <thead>

@@ -15,20 +15,8 @@
     $wynik = mysql_query("SELECT * FROM uzytkownicy WHERE id='$_GET[id]'")
              or die('Nie istenieje taki użytkownik');
     // wyświetlamy informacje o tym użytkowniku w ładnym rekordzie w tabelce
-    echo '<table class="table">';
-    echo '<thead><tr><th>#id</th><th>Login</th><th>Imie</th><th>Nazwisko</th><th>E-mail</th></tr></thead><tbody>';
-    while($r = mysql_fetch_assoc($wynik)) 
-    {
-        echo '<tr>';
-        echo '<td>'.$r['id'].'</td>';
-        echo '<td>'.$r['login'].'</td>';
-        echo '<td>'.$r['imie'].'</td>';
-        echo '<td>'.$r['nazwisko'].'</td>';
-        echo '<td>'.$r['email'].'</td>';
-        echo '</tr>'; 
-    }
-    echo '</tbody></table>';    
-        
+    dany_user($_GET['id']);
+          
     // do awansu wymagamy potwierdzenia poprzez wciśnięcie przycisku TAK
     if (isset($_GET['potwierdz']) && $_GET['potwierdz']=="tak") 
     {
