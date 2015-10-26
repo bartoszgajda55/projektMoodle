@@ -1,6 +1,6 @@
 <?php
 // plik usuwa użytkownika z danego kursu
-// jest to 3 krok tego kreatora
+// jest to 3 (ostatni) krok tego kreatora
 
     // zabezpieczenie przed niepowołanym dostępem
     if (!admin() && !nauczyciel()) return;
@@ -37,7 +37,7 @@
         // usuwamy rekord w tabeli, który odnosi się do danego zapisu
         $zapytanie2 = mysql_query("DELETE FROM `zapisy` WHERE id_uzytkownika='{$id_usera}' AND id_kursu='{$id_kursu}'")
                       or die('Nie udało się usunąć użytkownikaz kursu');
-        // Przekierowujemy stronę do panelu 1 (pierwszego i tam wyświetlamy komunikat o powodzeniu)
+        // Przekierowujemy stronę do panelu nr 2 (wyświetlamy tam komunikat o powodzeniu)
         header("Location: {$link1}&sukces=tak");
         // gdyby jednak header() nie przeniosło to dla bezpieczeństwa zatrzymujemy ten skrypt
         return;
@@ -48,7 +48,6 @@
     <br><small>Potwierdzenie operacji</small><hr>
 </h3>
 <?php 
-
 // tabelka z kursem
     dany_kurs($id_kursu);
 // tabelka z userem
@@ -56,7 +55,7 @@
 ?>
 <h4>Czy chcesz usunąć tego uzytkownika z tego kursu? </h4>
 <?php
-    // wyświetlenie przycisków
+    // wyświetlenie przycisków "TAK" i "NIE"
     echo '<a href="'.$link5.'" type="button" class="btn btn-success btn-lg" style="margin-right: 20px; margin-left: 20px;">Tak</a>';
     echo '<a href="'.$link1.'&sukces=nie" type="button" class="btn btn-danger btn-lg">Nie</a> ';
 ?>

@@ -19,9 +19,8 @@
     <tbody>
 <?php
 // wyświetlenie tabeli z kursami
-// jeżeli jesteśmy adminem, to dostajemy pełną listę kursów
     if(admin())
-    {   
+    {   // jeżeli jesteśmy adminem, to dostajemy pełną listę kursów
         $wynik = mysql_query("SELECT * FROM kursy");
     }
     else if (nauczyciel())

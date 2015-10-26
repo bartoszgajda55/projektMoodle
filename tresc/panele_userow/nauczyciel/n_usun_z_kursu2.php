@@ -8,31 +8,25 @@
         echo "Brak odpowiednich zmiennych w pasku adresu";
         return;
     }
-?>
 
-<!--- Tabelka z informacją o wybranym kursie ---------------------- -->
-<?php
-dany_kurs($_GET['id_kursu']);
+    // Tabelka z informacją o wybranym kursie
+    dany_kurs($_GET['id_kursu']);
 
-
-    // wyświetlenie informacji o powodzeniu lub porażce
+    // wyświetlenie informacji o powodzeniu lub porażce, z pliku nr 3
     if (isset($_GET['sukces']))
     {
         $sukces = $_GET['sukces'];
         if($sukces=="tak")
-        {
-            // udało się dodać użytkownika
-            echo '<div class="alert alert-success" role="alert">Użytkownik został usunięty z kursu</div>';
+        {   // udało się usunąć użytkownika z kursu
+            komunikat("Użytkownik został usunięty z kursu", "success");
         }
         else if($sukces=="nie")
-        {
-            // anulowano dodawanie
-            echo '<div class="alert alert-info" role="alert">Anulowano operację usuniecia użytkownika z kursu</div>';
+        {   // anulowano usuwanie użytkownika
+            komunikat("Anulowano operację usuniecia użytkownika z kursu", "info");
         }
         else if($sukces=="nie_masz_prawa")
-        {
-            // użytkownik był już dodany do kursu
-            echo '<div class="alert alert-danger" role="alert">Nie masz prawa wykonać tej operacji!</div>';
+        {   // brak praw do wykonania tej czynności (nie jest to jeszcze zaimplementowane w pliku nr3)
+            komunikat("Nie masz prawa wykonać tej operacji!", "danger");
         }
     }
 ?>
