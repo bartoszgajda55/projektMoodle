@@ -29,7 +29,7 @@ $wynik = mysql_query("SELECT * FROM uzytkownicy");
     {
         // uwstawiamy potrzebne zmienne
         $id = $r['id'];
-        // sprawdzamy typ konta, by wyświetlić ładną tabelkę
+        // sprawdzamy typ konta, by wyświetlić ładną ikonkę
         if($r['typ']=="a") $typp = '<p class="btn btn-default">a</p>';
         else if($r['typ']=="n") $typp = '<p  class="btn btn-warning">n</p>';
         else if($r['typ']=="u") $typp = '<p class="btn btn-primary">u</p>';
@@ -90,32 +90,31 @@ $wynik = mysql_query("SELECT * FROM uzytkownicy");
     // dokonano awansu na nauczyciela
     if(isset($_GET['awans']) && $_GET['awans']=="tak")
     {
-        echo '<div class="alert alert-success" role="alert">Awans na nauczyciela zakończony sukcesem</div>';
+        komunikat("Awans na nauczyciela zakończony sukcesem", "success");
     }
     // zaniechano dokonania awansu 
     else if(isset($_GET['awans']) && $_GET['awans']=="nie")
     {
-        echo '<div class="alert alert-info" role="alert">Nie wprowadzono zmian, nikogo nie awansowano</div>';
+        komunikat("Nie wprowadzono zmian, nikogo nie awansowano", "info");
     }
-    
     // zdegradowano nauczyciela do ucznia
     if(isset($_GET['degradacja']) && $_GET['degradacja']=="tak")
     {
-        echo '<div class="alert alert-success" role="alert">Degradacja do rangi ucznia zakończona sukcesem</div>';
+        komunikat("Degradacja do rangi ucznia zakończona sukcesem", "success");
     }
     // zaniechanie degradacji nauczyciela na ucznia
     else if(isset($_GET['degradacja']) && $_GET['degradacja']=="nie")
     {
-        echo '<div class="alert alert-info" role="alert">Nie wprowadzono zmian, nikt nie został zdegradowany do rangi ucznia</div>';
+        komunikat("Nie wprowadzono zmian, nikt nie został zdegradowany do rangi ucznia", "info");
     }
     // założono blokadę na użytkownika
     if(isset($_GET['blokada']) && $_GET['blokada']=="tak")
     {
-        echo '<div class="alert alert-danger" role="alert">Założono blokadę na użytkownika</div>';
+        komunikat("Założono blokadę na użytkownika", "danger");
     }
     // zdjęcto blokadę z użytkownika
     else if(isset($_GET['blokada']) && $_GET['blokada']=="nie")
     {
-        echo '<div class="alert alert-success" role="alert">Blokada z użytkownika została pomyślnie zdjęta</div>';
+        komunikat("Blokada z użytkownika została pomyślnie zdjęta", "success");
     }
 ?>

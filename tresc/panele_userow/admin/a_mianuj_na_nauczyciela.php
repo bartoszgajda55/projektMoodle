@@ -1,22 +1,20 @@
-<h3>Nadawanie rangi <b>N</b>auczyciel</h3><hr>
 <?php
+// plik zmienia rangę użytkownika z ucznia na nauczyciela
+
     // tutaj może przebywać tylko admin
-    if (!admin()) 
+    if (!admin()) return;
+ 
+    // sprawdzamy, czy są przesyłane odpowiednie zmienne GET
+    if(!isset($_GET['id'])) 
     {
-        echo 'Tylko dla admina';
+        echo "Brak odpowiednich zmiennych w pasku adresu";
         return;
     }
-    
+        
     // adresy plików. Jedna zmienna a skraca tyle kodu
     $adres_pliku_powrotnego = 'index.php?v=tresc/panele_userow/panel_glowny&prawa=tresc/panele_userow/admin/a_zarzadzanie_uzytkownikami';
     $adres_tego_pliku = 'index.php?v=tresc/panele_userow/panel_glowny&prawa=tresc/panele_userow/admin/a_mianuj_na_nauczyciela';
 
-    //pobieramy dane użytkownika, którego chcemy mianować na nauczyciela
-    $wynik = mysql_query("SELECT * FROM uzytkownicy WHERE id='$_GET[id]'")
-             or die('Nie istenieje taki użytkownik');
-    // wyświetlamy informacje o tym użytkowniku w ładnym rekordzie w tabelce
-    dany_user($_GET['id']);
-          
     // do awansu wymagamy potwierdzenia poprzez wciśnięcie przycisku TAK
     if (isset($_GET['potwierdz']) && $_GET['potwierdz']=="tak") 
     {
@@ -30,8 +28,15 @@
         // gdyby jednak header() nie przeniosło to dla bezpieczeństwa zatrzymujemy ten skrypt
         return;
     }
-    
-        
+?>
+<h3>Nadawanie rangi <b>N</b>auczyciel</h3><hr>
+<?php
+    //pobieramy dane użytkownika, którego chcemy mianować na nauczyciela
+    $wynik = mysql_query("SELECT * FROM uzytkownicy WHERE id='$_GET[id]'")
+             or die('Nie istenieje taki użytkownik');
+    // wyświetlamy informacje o tym użytkowniku w ładnym rekordzie w tabelce
+    dany_user($_GET['id']);
+
     // wyświetlamy pytanie, by potwierdzić chęć awansu użytkownika
     echo '<p class="bg-warning" style="padding: 15px;">Czy chcesz nadać temu użytkownikowi rangę <b>N</b>auczyciela?</p>';
     echo '<a href="'.$adres_tego_pliku.'&id='.$_GET["id"].'&potwierdz=tak" type="button" class="btn btn-success" style="margin-right: 20px; margin-left: 20px;">TAK (awansuj)</a>';

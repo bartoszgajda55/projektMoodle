@@ -1,7 +1,7 @@
 <!-- Skrypt wyświetla listę kursów danego nauczyciela lub wszystkich, jeśli to admin
 -->
 <h3>Lista kursów<hr></h3>
-<?php //sprawdzamy, czy jest to poprawny uzytkownik. Wejść tutaj może tylko nauczyciel
+<?php //sprawdzamy, czy jest to poprawny uzytkownik. Wejść tutaj może tylko nauczyciel lub admin
     if (!nauczyciel() && !admin()) 
     {
         echo "Dostęp tylko dla nauczyciela lub admina";
@@ -11,12 +11,12 @@
     // wyświetlenie komunikatu z pliku n_stworz_kurs
     if (isset($_GET['dodano']) && $_GET['dodano']=="tak")
     {
-        echo '<div class="alert alert-success" role="alert">Nowy kurs został dodany poprawnie</div><br>';
+        komunikat("Nowy kurs został dodany poprawnie","success");
     }
     // wyświetlenie komunikatu z pliku n_edycja_kursu
     if (isset($_GET['edytowano']) && $_GET['edytowano']=="tak")
     {
-        echo '<div class="alert alert-info" role="alert">Dane kursu zostały zmienione poprawnie</div><br>';
+        komunikat("Dane kursu zostały zmienione poprawnie","info");
     }
 ?>
  <table class="table">

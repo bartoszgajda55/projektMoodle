@@ -4,32 +4,28 @@
 <h3>Blokuj lub odblokuj kurs</h3><hr>
 <?php // zabezpieczenie przed niepowołanym dostępem
     if (!admin()) return;
-?>
-<?php
 // ----------------------------------------------------------------------------
 // blokada lub odblokowanie kursu
 // sprawdzamy, czy wciśnięto przycisk
 if (isset($_GET['potwierdz']) && $_GET['potwierdz']=="tak")
 {
-    // zmieniamy ustawienie w tabeli
+    // sprawdzamy, czy to przycisk zablokowania czy odblokowania
+    // w tym przypadku jest to przycisk zablokowania
     if (isset($_GET['blok']) && $_GET['blok']=="zablokuj")
-    {
+    {   // blokujemy kurs
         $zapytanie2 = mysql_query("UPDATE kursy SET stan='blocked' WHERE id_kursu={$_GET['id_kursu']}")
                       or die('Nie udało się zablokować kursu');
         // komunikat o powodzeniu
-        echo '<div class="alert alert-danger" role="alert">Kurs #'.$_GET['id_kursu'].' został zablokowany</div>';
+        komunikat("Kurs #{$_GET['id_kursu']} został zablokowany", "danger");
     }
     else if (isset($_GET['blok']) && $_GET['blok']=="odblokuj")
     {
         $zapytanie2 = mysql_query("UPDATE kursy SET stan='dobry' WHERE id_kursu={$_GET['id_kursu']}")
                       or die('Nie udało się odblokować kursu');
         // komunikat o powodzeniu
-        echo '<div class="alert alert-success" role="alert">Kurs #'.$_GET['id_kursu'].' został odblokowany</div>';
+        komunikat("Kurs #{$_GET['id_kursu']} został odblokowany", "success");
     }
-    
 }
-
-
 // ----------------------------------------------------------------------------
 ?>
  <table class="table">

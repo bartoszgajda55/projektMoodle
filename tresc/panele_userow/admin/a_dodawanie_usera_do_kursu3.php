@@ -6,6 +6,15 @@
     $id_usera = $_GET['id_usera'];
     $id_kursu = $_GET['id_kursu'];
 
+    // sprawdzamy uprawnienia do przeglądania pliku
+    if (!admin()) return;
+    // sprawdzamy, czy są przesyłane odpowiednie zmienne GET
+    if(!isset($_GET['id_usera']) || !isset($_GET['id_kursu'])) 
+    {
+        echo "Brak odpowiednich zmiennych w pasku adresu";
+        return;
+    }
+    
  // Dodawanie użytkownika do kursum, czyli dodanie rekordu do tabeli "zapisy"
     // sprawdzamy, czy wciśnięto przycisk TAK
     if (isset($_GET['potwierdz']) && $_GET['potwierdz']=="tak") 
@@ -41,15 +50,7 @@
     <a class="btn btn-default" href="<?=$link1?>" role="button">Wstecz</a>
     <br><small>Potwierdzenie operacji</small><hr>
 </h3>
-<?php // sprawdzamy uprawnienia do przeglądania pliku
-    if (!admin()) return;
-    // sprawdzamy, czy są przesyłane odpowiednie zmienne GET
-    if(!isset($_GET['id_usera']) || !isset($_GET['id_kursu'])) 
-    {
-        echo "Brak odpowiednich zmiennych w pasku adresu";
-        return;
-    }
-
+<?php 
     // tabelka z userem
     dany_user($id_usera);
 
