@@ -1,6 +1,10 @@
 /* 
 Custom robota, a nie jakieś gotowce !
- */
+r - pola rejestracji
+p - pola przypominania (wysłanie kodu)
+s - pola resetu hasła (z kodem)
+k - pola zmiany hasła w panelu użytkownika (po zalogowaniu)
+*/
 $().ready(function() {
     $("#rejestracja").validate({
         rules: {
@@ -141,6 +145,44 @@ $().ready(function() {
             },
             s_kod: {
                 required: "Wpisz email !",
+            }
+        }
+    });
+    $("#zmiana_panel").validate({
+        rules: {
+            k_stare_haslo: {
+                required: true,
+                minlength: 2,
+                maxlength: 20
+            },
+            k_haslo1: {
+                required: true,
+                minlength: 4,
+                maxlength: 20
+            },
+            k_haslo2: {
+                required: true,
+                minlength: 4,
+                maxlength: 20,
+                equalTo: "#k_haslo1"
+            }
+        },
+        messages : {
+            k_stare_haslo: {
+                required: "Wpisz stare hasło !",
+                minlength: "Wpisz co najmniej 4 znaki !",
+                maxlength: "Wpisz co najwyżej 20 znaków !"
+            },
+            k_haslo1: {
+                required: "Wpisz hasło !",
+                minlength: "Wpisz co najmniej 4 znaki !",
+                maxlength: "Wpisz co najwyżej 20 znaków !"
+            },
+            k_haslo2: {
+                required: "Wpisz hasło !",
+                minlength: "Wpisz co najmniej 4 znaki !",
+                maxlength: "Wpisz co najwyżej 20 znaków !",
+                equalTo: "Wpisane hasła są różne !"
             }
         }
     });

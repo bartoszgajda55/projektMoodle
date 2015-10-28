@@ -2,13 +2,12 @@
  * Bootstrap v3.3.5 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
+ *
+ * Custom Bootstrap CSS | Nie kopiować, i tak nie zadziała
+ *
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-#panel {
-    margin-left: 20px;
-}
 #logowanie {
-    margin-top: 20px;
+    padding: 20px;
 }
 html {
   font-family: sans-serif;
