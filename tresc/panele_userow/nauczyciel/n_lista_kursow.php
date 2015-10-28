@@ -18,6 +18,11 @@
     {
         komunikat("Dane kursu zostały zmienione poprawnie","info");
     }
+    // wyświetlenie komunikatu z pliku n_stworz_lekcje
+    if (isset($_GET['dodano_lekcje']) && $_GET['dodano_lekcje']=="tak")
+    {
+        komunikat("Dodano lekcję poprawnie","success");
+    }
 ?>
  <table class="table">
   <thead>
@@ -53,11 +58,18 @@
         // jeśli admin to wyświetlamy dodatkową kolumnę z imieniem i nazwiskiem nauczycie;a
         if(admin()) echo '<td>'.$r['imie'].' '.$r['nazwisko'].'</td>';
         
-        // przycisk do edycji kursu
-        $link = "index.php?v=tresc/panele_userow/panel_glowny"
+        // link do edycji kursu
+        $edycja_kursu = "index.php?v=tresc/panele_userow/panel_glowny"
                 . "&prawa=tresc/panele_userow/nauczyciel/n_edycja_kursu"
                 . "&id_kursu={$r['id_kursu']}";
-        echo '<td><a href="'.$link .'" class="btn btn-default">Edytuj kurs</a></td>';
+        // link do wyświetlenia listy lekcji
+        $lekcje = "index.php?v=tresc/panele_userow/panel_glowny"
+                . "&prawa=tresc/panele_userow/nauczyciel/n_lista_lekcji_w_kursie"
+                . "&id_kursu={$r['id_kursu']}";
+        // przycisk edycji kursu        
+        echo '<td><a href="'.$edycja_kursu.'" class="btn btn-default btn-sm"> <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edycja</a></td>';
+        // przycisk dodawania lekcji do kursu
+        echo '<td><a href="'.$lekcje.'" class="btn btn-default btn-sm">Przejdź do listy lekcji</a></td>';
         echo '</tr>'; 
     }
 ?>
