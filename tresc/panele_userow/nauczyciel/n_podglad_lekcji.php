@@ -10,9 +10,14 @@
         echo '<br><a class="btn btn-default" href="index.php?v=tresc/panele_userow/panel_glowny&prawa=tresc/panele_userow/nauczyciel/n_lista_lekcji_w_kursie" role="button">Przejdź do listy lekcji</a>';
         return;
     }
+    // komunikat z pliku n_edycja_lekcji. Powodzenie w edytowaniu lekcji.
+    if (isset($_GET['edytowano']) && $_GET['edytowano']=="tak") 
+    {
+        komunikat("Zmiany zostały zapisane", "success");
+    }
     // kilka zmiennych globalnych
     $id_lekcji = $_GET['id_lekcji'];
-
+ 
     // wyświetlenie zawartości danej lekcji
     $wynik_kurs_nazwa = mysql_query("SELECT * FROM `lekcje` WHERE id_lekcji={$id_lekcji}");
     $nr = 0;
@@ -24,4 +29,7 @@
         // wyświetlenie treści
         echo '<p>'.$r['tresc'].'</p>';
     }
+    
+    // wyświetlenie przycisku "Edytuj lekcję"
+    echo '<a class="btn btn-default" href="?v=tresc/panele_userow/panel_glowny&prawa=tresc/panele_userow/nauczyciel/n_edycja_lekcji&id_lekcji='.$id_lekcji.'" role="button">Edytuj lekcję</a> </i>';
 ?>

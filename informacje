@@ -113,18 +113,10 @@ Tabele z bazy danych
 
 
 Do zrobienia:
-    - edycja lekcji n_edycja_lekcji.php
-
     - dodawanie plików przez nauczyciela do lekcji
     - dodawanie plików przez uzytkownika do lekcji
+    - dokumentacja projektu
     
-
-Dodawanie lekcji do danego kursu przez nauczyciela lub admina
-    : admin może dodawać tematy do jakiego chce kursu
-    : nauczyciel może dodawać tematy tylko do swoich kursów
-
-
-
 Cytat z zadania: "Nauczyciel ma możliwość tworzenia kursów. W obrębie własnego
                  kursu nauczyciel ma możliwość zapisywania użytkowników, 
                 dodawania plików do lekcji, tworzenia zadań, 
