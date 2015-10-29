@@ -34,13 +34,14 @@
         echo '<br>';
     }
 ?>
-<a class="btn btn-default" href="index.php?v=tresc/panele_userow/panel_glowny&prawa=tresc/panele_userow/nauczyciel/n_stworz_lekcje&id_kursu=<?=$_GET['id_kursu']?>" role="button">Dodaj nową lekcję</a><br><br>
+<a class="btn btn-default" href="index.php?v=tresc/panele_userow/panel_glowny&prawa=tresc/panele_userow/nauczyciel/n_stworz_lekcje&id_kursu=<?=$_GET['id_kursu']?>"
+   role="button"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Dodaj nową lekcję</a><br><br>
     <table class="table">
         <thead>
             <tr>
                 <th>Nr. lekcji</th>
                 <th>Temat</th>
-                <th></th>
+                <th>Edycja</th>
              </tr>
         </thead>
         <tbody>
@@ -51,23 +52,23 @@
     while ($r = mysql_fetch_assoc($wynik_kurs_nazwa)) 
     {
         $nr++; // licznik lekcji
-        
-        echo '<tr>';
-        echo '<td>'.$nr.'</td>';
-        echo '<td>'.$r['temat'].'</td>';
         // link do pliku z edycją lekcji
         $edycja_lekcji = "index.php?v=tresc/panele_userow/panel_glowny"
                 . "&prawa=tresc/panele_userow/nauczyciel/n_edycja_lekcji"
-                . "&id_lekcji=";
+                . "&id_lekcji={$r['id_lekcji']}";
         // link do pliku z podglądem lekcji
         $podglad_lekcji = "index.php?v=tresc/panele_userow/panel_glowny"
                 . "&prawa=tresc/panele_userow/nauczyciel/n_podglad_lekcji"
                 . "&id_lekcji={$r['id_lekcji']}";
+                
+        echo '<tr>';
+        echo '<td>'.$nr.'</td>';
+        echo '<td><a href="'.$podglad_lekcji.'">'.$r['temat'].'</a></td>';
         // przyciski
-        echo '<td><a class="btn btn-default btn-sm" href="'.$edycja_lekcji.'" role="button">Edycja lekcji</a></td>';
-        echo '<td><a class="btn btn-default btn-sm" href="'.$podglad_lekcji.'" role="button">Podgląd lekcji</a></td>';
+        echo '<td><a class="btn btn-default" href="'.$edycja_lekcji.'" role="button"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>';
+        echo '<td><a class="btn btn-default " href="'.$podglad_lekcji.'" role="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Podgląd lekcji</a></td>';
         echo '</tr>'; 
-    }  
+    }
 ?>
         </tbody>
     </table>
