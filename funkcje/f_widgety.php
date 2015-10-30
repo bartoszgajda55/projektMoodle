@@ -10,7 +10,7 @@ function w_lista_kursow($id_usera, $ilosc = 3)
     // wyświetlenie nagłówka
     echo '<div class="thumbnail">'
           .'<div class="caption">'
-          .'<h4>Ostatnie kursy</h4>'
+          .'<h4>Ostatnie kursy</h4><br>'
           .'<table class="table">'
           .'<tbody>';
 

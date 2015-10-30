@@ -8,7 +8,6 @@
 function dany_kurs($id, $kolor="info")
 {
     echo '<div class="alert alert-'.$kolor.'" role="alert">';
-    echo '<h3><small>Wybrany kurs</small></h3>';
     echo '<table class="table"><thead><tr><th>#id</th><th>Nazwa</th></tr></thead>';
     echo '<tbody>';
 

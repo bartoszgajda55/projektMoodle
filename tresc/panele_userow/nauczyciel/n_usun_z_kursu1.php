@@ -2,8 +2,8 @@
     dostęp do pliku ma Administrator i Nauczyciel
 -->
 <h3>Usuwanie użytkownika z kursu, krok <b>1/3</b><hr>
-     <small>Wybierz kurs</small>
-</h3>
+    <small>Wybierz kurs:</small>
+</h3><br>
 <?php // zabezpieczenie przed niepowołanym dostępem
     if (!admin() && !nauczyciel()) return;
 ?>

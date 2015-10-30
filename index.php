@@ -46,5 +46,6 @@
         <script src="bootstrap/js/bootstrap.js"></script>
         <script src="bootstrap/js/jquery.validate.js"></script>
         <script src="bootstrap/js/walidacja.js"></script>
+        <script src="bootstrap/js/flat-ui.js"></script>
     </body>
 </html>

@@ -1,20 +1,19 @@
- <div class="col-md-2"></div>
-<div class="col-md-8">
+<div id="z_lista_lekcji_lewa" class="col-md-9">
+<div class="thumbnail">
 <h3>Dołączanie do kursu<hr>
-      <small>Wpisz kod dostępu</small></h3>
-    <div class="row">
+    <small>Wpisz kod dostępu:</small></h3><br>
+    <div>
         <form action="index.php?v=tresc/u_kursy/dolacz_do_kursu&wyslano=tak" method="post" accept-charset="utf-8" >
-        <div class="col-lg-6">
+        <div>
            <div class="input-group">
                <input type="text" class="form-control" placeholder="Kod dostępu" name="klucz" value="<?=@$_POST['klucz']?>">
              <span class="input-group-btn">
-               <button type="submit" class="btn btn-default" type="button">Dołącz do kursu</button>
+                 <button type="submit" class="btn btn-default" type="button">Dołącz do kursu</button>
              </span>
            </div><!-- /input-group -->
          </div><!-- /.col-lg-6 -->
         </form>
     </div>   
-
 <?php
     // sprawdzamy, czy użytkownik jest zalogowany, jeśli nie to return; i do widzenia
     if(!zalogowano()) return;
@@ -78,20 +77,26 @@
             // jeśli zapytanie zwróci więcej niż jeden rekord, znaczy że jest problem z kluczami
             else if(mysql_num_rows($wynik) > 1) 
             {
-               echo '<div class="alert alert-warning" role="alert">Do tego klucza przypisanych jest kilka kursów. Skontaktuj się z administratorem i zgłoś błąd</div>';
+               echo '<br><div class="alert alert-warning" role="alert">Do tego klucza przypisanych jest kilka kursów. Skontaktuj się z administratorem i zgłoś błąd</div>';
             }
             // jeśli zapytanie nie zwróci nic, znaczy że nie ma takiego klucza w bazie, czyli jest on niepoprawny
             else if(mysql_num_rows($wynik) <= 0)
             {
-                 echo '<div class="alert alert-danger" role="alert">Niepoprawny klucz dostępu</div>';
+                 echo '<br><div class="alert alert-danger" role="alert">Niepoprawny klucz dostępu</div>';
             }
             
         }
         else if (!isset($_POST['klucz']) || $_POST['klucz']=="") // nie podano klucza
         {
-             echo '<div class="alert alert-danger" role="alert">Nie podałeś klucza dostępu</div>';
+             echo '<br><div class="alert alert-danger" role="alert">Nie podałeś klucza dostępu</div>';
         }
     }
 ?>
     </div>
-<div class="col-md-2"></div>
+</div>
+<div id="z_lista_lekcji_prawa" class="col-md-3">
+    <div class="thumbnail">
+        <p>Wpisz kod dostępu, podany przez nauczyciela
+            Jeśli go nie masz, poproś nauczyciela o ręczne dodanie do kursu.
+    </div>
+</div>
