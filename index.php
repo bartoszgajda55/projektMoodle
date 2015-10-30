@@ -32,7 +32,7 @@
         <!-- Tutaj zaczyna się treść danej podstrony -->
         <!-- Całość jest zawarta w containerze oraz w jednym row -->
         <div class="container">
-            <div class="row">
+            <div id="z_panel_calosc" class="row">
                  <?php 
                      // dołącza plik, jaki jest podany w zmiennej $_GET['v'] (pierwszy argument)
                      // jeśli taka zmienna nie istnieje, jest dodawany plik 'tresc/strona_glowna' (drugi argument)

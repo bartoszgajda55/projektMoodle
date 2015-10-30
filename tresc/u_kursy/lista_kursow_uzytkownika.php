@@ -1,5 +1,6 @@
 <!-- Plik zawiera listę kursów do których dany użytkownik ma dostęp -->
-<div class="col-md-10">
+<div id="z_lista_lekcji_lewa" class="col-md-9">
+<div class="thumbnail">
     <h3>Lista kursów, do których masz dostęp</h3><hr>
  <table class="table">
   <thead>
@@ -37,10 +38,13 @@ $wynik = mysql_query("SELECT * FROM `zapisy` INNER JOIN kursy ON zapisy.id_kursu
 ?>
   </tbody>
 </table>
-
-
 <hr>
 <a class="btn btn-default" href="?v=tresc/u_kursy/dolacz_do_kursu" role="button">Dołącz do nowego kursu</a> (Wymaga podania kodu dostępu)
-
 </div>
-<div class="col-md-2"></div>
+</div>
+<div id="z_lista_lekcji_prawa" class="col-md-3">
+    <div class="thumbnail">
+    <p>Jakaś tam lista
+    <p>Albo inny kontent
+    </div>
+</div>

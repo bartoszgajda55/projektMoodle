@@ -30,7 +30,7 @@ if($stare_haslo != "" || $haslo1 != "" || $haslo2 != "")
     }
     else
     {
-        echo "<div class='alert alert-danger'>Podane Stare Hasło jest nieprawidłowe!</div>";
+        echo "<hr><div class='alert alert-danger'>Podane Obecne Hasło jest nieprawidłowe!</div>";
     }
 }
 else

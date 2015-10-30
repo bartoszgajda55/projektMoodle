@@ -1,5 +1,5 @@
-<div class="col-md-2"></div>
-<div class="col-md-8">
+<div id="z_lista_lekcji_lewa" class="col-md-9">
+<div class="thumbnail">
 <?php
 // plik wyświetla listę lekcji w danym kursie.
 // Po kliknięciu na daną lekcję można przejść do niej
@@ -82,4 +82,8 @@
         </tbody>
     </table>
 </div>
-<div class="col-md-2"></div>
+</div>
+<div id="z_lista_lekcji_prawa" class="col-md-3 thumbnail">
+    <p>Jakaś tam lista
+    <p>Albo inny kontent
+</div>

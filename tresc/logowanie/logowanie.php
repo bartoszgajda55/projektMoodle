@@ -2,7 +2,6 @@
      Skrypt sprawdza poprawność formularza i wysłanych w nim danych
      Następnie loguje, ustawiając odpowiednie wartości zmiennym $_SESSION
 --->
-<div class="col-md-6">
 <?php
     // sprawdzamy, czy formularz zostal przesłany
     if (isset($_POST['login']) && $_POST['login']!="") 
@@ -88,8 +87,8 @@
         echo '</div>';
     }
 ?>
-    
-    <div id="logowanie" class="row">
+<div class="row">   
+    <div id="l_panel_lewy" class="col-md-6">
         <legend>Logowanie</legend>     
         <form action="?v=tresc/logowanie/logowanie" method="post" accept-charset="utf-8">
             <div class="form-group">
@@ -98,15 +97,16 @@
             <div class="form-group">
                 <input type="password" id="password" class="form-control" name="haslo" placeholder="Hasło">
             </div>
-            <div class="col-md-6"><button type="submit" name="submit" class="btn btn-info btn-block ">Zaloguj</button></div>
-            <div class="col-md-6"><button type="button" name="przypomnij" class="btn  btn-block" 
+            <div id='l_button_lewy'><button type="submit" name="submit" class="btn btn-info btn-block ">Zaloguj</button></div>
+            <div id='l_button_prawy'><button type="button" name="przypomnij" class="btn  btn-block" 
                                           onclick="parent.location='index.php?v=tresc/przypomnij_haslo/przypomnij'">Przypomnij haslo</button></div>
         </form>		
     </div>
-</div>
-<div class="col-md-6">
+
+<div id="l_panel_prawy" class="col-md-6">
     <h2>Witaj na Moodle!</h2>
     <p>Trafiłeś na stronę główną Moodle Project!
         Możesz zalogować się aby rozpocząć naukę, lub zacząć od rejestracji jeśli jesteś tutaj pierwszy raz. Miłej nauki !
     <p>Dwa przyciski na górze pozwolą Ci rozpocząć przygodę z naszym serwisem.
+</div>
 </div>
