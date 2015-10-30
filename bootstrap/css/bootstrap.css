@@ -4,10 +4,48 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  *
  * Custom Bootstrap CSS | Nie kopiować, i tak nie zadziała
- *
-/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-#logowanie {
+ * l - css dla paneli logowania, rejestracji, odzyskiwania hasła (wszystko przed zalogowaniem)
+ * z - css dla paneli po zalogowaniu: strona glowna, panele itp.
+ */
+#z_lista_lekcji_lewa {
+    padding-right: 10px;
+}
+#z_lista_lekcji_prawa {
+    padding-left: 10px;
+}
+#z_panel_menu_lewe {
+    padding-right: 10px;   
+}
+#z_panel_tresc_prawa {
+    padding-left: 10px;     
+}
+#z_panel_calosc {
     padding: 20px;
+}
+#z_strona_glowna_lewa {
+    padding-right: 10px;
+}
+#z_strona_glowna_prawa {
+    padding-left: 10px;
+}
+#l_panel_lewy {
+    padding-left: 20px;
+    padding-right: 10px;
+}
+#l_panel_prawy {
+    padding-left: 10px;
+    padding-right: 20px;
+    float: right;
+}
+#l_button_lewy {
+    float:left;
+    width: 200px;
+    margin-left: 50px;
+}
+#l_button_prawy {
+    float: right;
+    width: 200px;
+    margin-right: 50px;
 }
 html {
   font-family: sans-serif;
@@ -1228,7 +1266,7 @@ h2,
 .h2,
 h3,
 .h3 {
-  margin-top: 20px;
+  margin-top: 0px;
   margin-bottom: 10px;
 }
 h1 small,
@@ -1588,8 +1626,8 @@ pre code {
   overflow-y: scroll;
 }
 .container {
-  padding-right: 15px;
-  padding-left: 15px;
+  //padding-right: 15px;
+  //padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -1619,13 +1657,10 @@ pre code {
   margin-left: -15px;
   background-color: white;
   border-radius: 8px;
-  padding-bottom: 50px;
 }
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
   position: relative;
   min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
 }
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
   float: left;
@@ -1944,8 +1979,6 @@ pre code {
 @media (min-width: 992px) {
   .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
     float: left;
-    padding-left: 20px;
-    padding-right: 20px;
   }
   .col-md-12 {
     width: 100%;
@@ -4033,6 +4066,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+  padding-right: 10px;
 }
 .nav > li {
   position: relative;
@@ -5058,8 +5092,8 @@ a.badge:focus {
 }
 .thumbnail {
   display: block;
-  padding: 4px;
-  margin-bottom: 20px;
+  padding: 10px;
+  margin-bottom: 10px;
   line-height: 1.42857143;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -5079,12 +5113,12 @@ a.thumbnail.active {
   border-color: #337ab7;
 }
 .thumbnail .caption {
-  padding: 9px;
+  padding: 0px;
   color: #333;
 }
 .alert {
-  padding: 15px;
-  margin-top: 20px;
+  padding: 10px;
+  margin-top: 0px;
   border: 1px solid transparent;
   border-radius: 4px;
 }

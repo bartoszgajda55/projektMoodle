@@ -2,11 +2,9 @@
       Z lewej strony zawiera menu
       Z prawej strony wyświetlają się podstrony
 --->
-<div id='panel'><h1>Panel użytkownika</h1></div>
-<hr>
-
-<div class="col-md-3">
-    <ul class="nav nav-pills nav-stacked">
+<div class="thumbnail"><h1>Panel użytkownika</h1></div>
+<div id="z_panel_menu_lewe" class="col-md-3">
+    <ul class="nav nav-pills nav-stacked thumbnail">
         <?php
         // $plik to adres do tego pliku. Zrobiono dla wygody
         $plik = "?v=tresc/panele_userow/panel_glowny";
@@ -37,10 +35,12 @@
         ?>
     </ul>
 </div>
-<div class="col-md-8">
+<div id="z_panel_tresc_prawa" class="col-md-9">
+    <div class="thumbnail">
     
     <?php
     // dołączmy plik z $_GET['prawa']
     dolacz_plik("prawa", "tresc/panele_userow/uczen/u_info"); 
     ?>
+    </div>
 </div>

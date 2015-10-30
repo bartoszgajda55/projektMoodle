@@ -1,5 +1,5 @@
-<div class="col-md-6">
-        <div id="logowanie" class="row">
+<div class="row">
+        <div id="l_panel_lewy" class="col-md-6">
         <legend>Rejestracja</legend>     
         <form action="?v=tresc/rejestracja/rejestracja" id="rejestracja" method="post" accept-charset="utf-8">
             <div class="form-group">
@@ -114,10 +114,11 @@ if($licznik_bledow == 0)
     }
 }
 ?>
-</div>
-<div class="col-md-6">
+
+<div id="l_panel_prawy" class="col-md-6">
     <h2>Rejestracja</h2>
     <p>Rejestracja na portalu umożliwi Ci korzystanie z wszelkich dobrodziejstw tej platformy.
         Po ukończeniu rejestracji zostaniesz automatycznie zalogowany. Bez potwierdzania emailem.
     <p>
+</div>
 </div>

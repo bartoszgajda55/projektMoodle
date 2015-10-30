@@ -1,6 +1,6 @@
 <!-- Skrypt wyświetla listę kursów danego nauczyciela lub wszystkich, jeśli to admin
 -->
-<h3>Lista kursów<hr></h3>
+<h3>Lista kursów</h3><hr>
 <?php //sprawdzamy, czy jest to poprawny uzytkownik. Wejść tutaj może tylko nauczyciel lub admin
     if (!nauczyciel() && !admin()) 
     {

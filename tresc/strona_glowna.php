@@ -1,5 +1,5 @@
 
-<div class="col-md-8">
+<div id="z_strona_glowna_lewa" class="col-md-8">
        
 <?php
 // w tym miejscu musimy sprawdzic parę zmiennych $_GET
@@ -17,19 +17,12 @@
     }
 
 ?>
-    <h3>Witaj <?=$_SESSION['imie']?> <?=$_SESSION['nazwisko']?></h3>
-      
-Ble ble ble - główna strona z informacjami dla uzytkownika.
-<br>
 <?php
-$data = date("Y-m-d");
-echo $data;
-
+//Wyświtla ramkę z danymi użytkownika
 w_dane_usera($_SESSION['id_usera']);
-
 
 ?>
   </div>
-        <div class="col-md-4">    <?php w_lista_kursow($_SESSION['id_usera'], 4); ?></div>
+        <div id="z_strona_glowna_prawa" class="col-md-4">    <?php w_lista_kursow($_SESSION['id_usera'], 4); ?></div>
         
     

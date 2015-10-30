@@ -2,7 +2,6 @@
      Skrypt sprawdza poprawność formularza i wysłanych w nim danych
      Następnie loguje, ustawiając odpowiednie wartości zmiennym $_SESSION
 --->
-<div class="col-md-6">
 <?php
     // sprawdzamy, czy formularz zostal przesłany
     if (isset($_POST['p_email']) && $_POST['p_login']!="") 
@@ -32,8 +31,8 @@
         }
     }   
 ?>
-    
-    <div id="logowanie" class="row">
+<div class="row">
+    <div id="l_panel_lewy" class="col-md-6">
         <legend>Podaj Dane</legend>     
         <form action="?v=tresc/przypomnij_haslo/przypomnij" id="przypomnij" method="post" accept-charset="utf-8">
             <div class="form-group">
@@ -42,18 +41,15 @@
             <div class="form-group">
                 <input type="text" id="password" class="form-control" name="p_login" placeholder="Login">
             </div>
-            <div class="col-md-6"><button type="submit" name="submit" class="btn btn-info btn-block ">Wyślij Kod</button></div>
-            <div class="col-md-6"><button type="button" name="wpisz" class="btn  btn-block" 
+            <div id="l_button_lewy"><button type="submit" name="submit" class="btn btn-info btn-block ">Wyślij Kod</button></div>
+            <div id="l_button_prawy"><button type="button" name="wpisz" class="btn  btn-block" 
                                           onclick="parent.location='index.php?v=tresc/przypomnij_haslo/reset'">Już mam Kod !</button></div>      
         </form>		
     </div>
-    <?php
-    
-    ?>
-</div>
-<div class="col-md-6">
-    <h2>Resetowanie Hasła</h2><br>
-    <p>Aby zresetować swoje hasło musisz podaj najpierw dane które ułatwią nam identyfikację Ciebie w bazie danych.
-        Potem, na Twój adres email zostanie wysłany kod, który umożliwi Ci ustawienie nowego hasła.
-    <p>Jeśli już otrzymałeś swój kod, przejdź dalej przyciskiem "Już mam kod".
+    <div id="l_panel_prawy" class="col-md-6">
+        <h2>Resetowanie Hasła</h2><br>
+        <p>Aby zresetować swoje hasło musisz podaj najpierw dane które ułatwią nam identyfikację Ciebie w bazie danych.
+            Potem, na Twój adres email zostanie wysłany kod, który umożliwi Ci ustawienie nowego hasła.
+        <p>Jeśli już otrzymałeś swój kod, przejdź dalej przyciskiem "Już mam kod".
+    </div>
 </div>
