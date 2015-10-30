@@ -104,7 +104,7 @@
     </div>
 
 <div id="l_panel_prawy" class="col-md-6">
-    <h2>Witaj na Moodle!</h2>
+    <h2>Witaj na Moodle!</h2><br>
     <p>Trafiłeś na stronę główną Moodle Project!
         Możesz zalogować się aby rozpocząć naukę, lub zacząć od rejestracji jeśli jesteś tutaj pierwszy raz. Miłej nauki !
     <p>Dwa przyciski na górze pozwolą Ci rozpocząć przygodę z naszym serwisem.

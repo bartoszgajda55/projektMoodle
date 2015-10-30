@@ -39,7 +39,7 @@ $wynik = mysql_query("SELECT * FROM `zapisy` INNER JOIN kursy ON zapisy.id_kursu
   </tbody>
 </table>
 <hr>
-<a class="btn btn-default" href="?v=tresc/u_kursy/dolacz_do_kursu" role="button">Dołącz do nowego kursu</a> (Wymaga podania kodu dostępu)
+<a class="btn btn-default" href="?v=tresc/u_kursy/dolacz_do_kursu" role="button">Dołącz do nowego kursu</a>
 </div>
 </div>
 <div id="z_lista_lekcji_prawa" class="col-md-3">

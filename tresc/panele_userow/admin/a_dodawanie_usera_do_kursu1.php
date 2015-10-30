@@ -1,5 +1,5 @@
 <h3>Dodawanie użytkownika do kursu, krok <b>1/3</b><hr>
-    <small>Wybierz użytkownika</small></h3>
+    <small>Wybierz użytkownika:</small></h3><br>
 <?php // sprawdzamy uprawnienia do przeglądania pliku
     if (!admin()) return;
 

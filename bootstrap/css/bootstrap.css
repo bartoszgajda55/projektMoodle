@@ -4080,7 +4080,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav > li > a:hover,
 .nav > li > a:focus {
   text-decoration: none;
-  background-color: #eee;
+  background-color: #bdc3c7;
+  color: #2C3E50;
 }
 .nav > li.disabled > a {
   color: #777;
@@ -4188,8 +4189,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
-  color: #fff;
-  background-color: #27ae60;
+  color: white;
+  background-color: #2C3E50;
 }
 .nav-stacked > li {
   float: none;
@@ -4586,8 +4587,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  background-color: #27ae60;
-  border-color: #e7e7e7;
+    background-color: #2C3E50;
+    border-color: #e7e7e7;
 }
 .navbar-default .navbar-brand {
   color: white;
@@ -5121,6 +5122,7 @@ a.thumbnail.active {
   margin-top: 0px;
   border: 1px solid transparent;
   border-radius: 4px;
+  font-size: 18px;
 }
 .alert h4 {
   margin-top: 0;
