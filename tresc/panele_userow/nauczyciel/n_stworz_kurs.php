@@ -2,12 +2,19 @@
 // Skrypt tylko dla nauczyciela (nie dla admina)
 // Możliwość stworzenia nowego kursu
 
+    // jeśli zagląda tutaj admin, przekierowywujemy do innego pliku 
+    if (admin())
+    {
+        header("Location: index.php?v=tresc/panele_userow/panel_glowny&prawa=tresc/panele_userow/nauczyciel/n_stworz_kurs_admin");
+        return;
+    }
     //sprawdzamy, czy jest to poprawny uzytkownik. Wejść tutaj może tylko nauczyciel
     if (!nauczyciel())  
     {
         echo "Dostęp tylko dla nauczyciela";
         return;
     }
+   
     
     // sprawdzamy, czy formularz został wysłany
     if (isset($_GET['wyslano']) && $_GET['wyslano']=="tak")

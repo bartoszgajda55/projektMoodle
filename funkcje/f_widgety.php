@@ -63,10 +63,42 @@ function w_dane_usera($id_usera)
           .'</div>';
 }
 
-// widget wyświetlający listę ostatnich lekcji
+// widget wyświetlający listę dwóch ostatnich lekcji z ostatnich $ilosc kursów
 function w_osatnie_lekcje($id_usera, $ilosc = 3)
 {
-    
+    // wyświetlenie nagłówka
+    echo '<div class="thumbnail">'
+          .'<div class="caption">'
+          .'<h4>Ostatnio dodane lekcje</h4><br>'
+          .'<table class="table">'
+          .'<tbody>';
+
+    // wyświetlenie małej tabelki z ostatnimi (ostatnio dodanymi) lekcjami dla danego użytkownika
+    // pierwsza pętla podaje tylko te kursy, do których jest zapisany użytkownik.
+    $wynik = mysql_query("SELECT * FROM `zapisy` WHERE id_uzytkownika={$id_usera} ORDER BY id_zapisu DESC LIMIT {$ilosc}");
+        while($r = mysql_fetch_assoc($wynik)) 
+        {
+            // druga pętla wyświetla po dwie ostatnie lekcje z każdego kursu
+            $nazwa_lekcji =  mysql_query("SELECT * FROM `lekcje` WHERE id_kursu={$r['id_kursu']} ORDER BY id_lekcji DESC LIMIT 2");
+            while($g = mysql_fetch_assoc($nazwa_lekcji)) 
+            {   
+                $link = "?v=tresc/u_kursy/dana_lekcja&id={$g['id_lekcji']}&id_kursu={$g['id_kursu']}";
+                echo '<tr>';
+                // wyświetlenie wiersza w tabelce z linkiem do lekcji
+                echo "<td><a href='{$link}'>{$g['temat']}</a> <br><small><i>{$r['data_zapisu']}</i></small><td>";
+                echo '</tr>'; 
+            }
+        }
+    // jeżeli to nauczyciel lub admin, nie wyświetlamy ich kursów, tylko komunikat
+    if (nauczyciel() || admin())
+    {
+        komunikat("Aby zobaczyć lekcje, przejdź do zarządzania");
+    }
+    // zakończenie tabeli i ramki
+    echo '</tbody>'
+          .'</table>'
+          .'</div>'
+          .'</div>';
 }
 
 // widget kalendarz - wyświetla kalendarz, który z niczym nie jest powiązany

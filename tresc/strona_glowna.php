@@ -1,5 +1,5 @@
 
-<div id="z_strona_glowna_lewa" class="col-md-8">
+<div id="z_strona_glowna_lewa" class="col-md-4">
        
 <?php
 // w tym miejscu musimy sprawdzic parę zmiennych $_GET
@@ -16,13 +16,14 @@
         echo ('<div class="alert alert-info">Zalogowano pomyślnie</div><hr>');
     }
 
-?>
-<?php
+
 //Wyświtla ramkę z danymi użytkownika
 w_dane_usera($_SESSION['id_usera']);
 
 ?>
   </div>
-        <div id="z_strona_glowna_prawa" class="col-md-4">    <?php w_lista_kursow($_SESSION['id_usera'], 4); ?></div>
+<div  class="col-md-4">      <?php w_osatnie_lekcje($_SESSION['id_usera'], 4); ?>    </div>
+      
+<div id="z_strona_glowna_prawa" class="col-md-4">    <?php w_lista_kursow($_SESSION['id_usera'], 4);  ?>    </div>
         
     
