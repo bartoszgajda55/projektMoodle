@@ -2,7 +2,28 @@
      Skrypt sprawdza poprawność formularza i wysłanych w nim danych
      Następnie loguje, ustawiając odpowiednie wartości zmiennym $_SESSION
 --->
-<?php
+<div class="row">  
+    <div id="l_panel_lewy" class="col-md-6">
+        <legend>Ustaw Nowe Hasło</legend>     
+        <form action="?v=tresc/przypomnij_haslo/reset" method="post" id="reset" accept-charset="utf-8">
+            <div class="form-group">
+                <input type="text" id="s_email" class="form-control" name="s_email" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <input type="text" id="s_login" class="form-control" name="s_login" placeholder="Login">
+            </div>
+            <div class="form-group">
+                <input type="text" id="s_kod" class="form-control" name="s_kod" placeholder="Kod">
+            </div>
+            <div class="form-group">
+                <input type="password" id="s_haslo" class="form-control" name="s_haslo" id="s_haslo" placeholder="Nowe hasło">
+            </div>
+            <div class="form-group">
+                <input type="password" id="s_nowe_haslo" class="form-control" name="s_nowe_haslo" placeholder="Powtórz nowe hasło">
+            </div>
+            <div class=""><button type="submit" name="submit" class="btn btn-info btn-block ">Ustaw Nowe Hasło</button></div>
+        </form>
+        <?php
     // sprawdzamy, czy formularz zostal przesłany
     if (isset($_POST['s_email']) && $_POST['s_login']!="" && $_POST['s_kod']!="" && $_POST['s_haslo']!="" && $_POST['s_nowe_haslo']!="") 
     {     
@@ -33,7 +54,7 @@
         }
         else if ($czy_kod_poprawny[0] != $kod) 
         {
-            echo '<div class="alert alert-danger" role="alert">Podano niepoprawny Kod</div>';
+            echo '<hr><div class="alert alert-danger" role="alert">Podany Kod jest niepoprawny !</div>';
         }
         else 
         {
@@ -42,39 +63,7 @@
         }
     }  
 ?>
-<div class="row">  
-    <div id="l_panel_lewy" class="col-md-6">
-        <legend>Ustaw Nowe Hasło</legend>     
-        <form action="?v=tresc/przypomnij_haslo/reset" method="post" id="reset" accept-charset="utf-8">
-            <div class="form-group">
-                <input type="text" id="s_email" class="form-control" name="s_email" placeholder="Email">
-            </div>
-            <div class="form-group">
-                <input type="text" id="s_login" class="form-control" name="s_login" placeholder="Login">
-            </div>
-            <div class="form-group">
-                <input type="text" id="s_kod" class="form-control" name="s_kod" placeholder="Kod">
-            </div>
-            <div class="form-group">
-                <input type="password" id="s_haslo" class="form-control" name="s_haslo" id="s_haslo" placeholder="Nowe hasło">
-            </div>
-            <div class="form-group">
-                <input type="password" id="s_nowe_haslo" class="form-control" name="s_nowe_haslo" placeholder="Powtórz nowe hasło">
-            </div>
-            <div class=""><button type="submit" name="submit" class="btn btn-info btn-block ">Ustaw Nowe Hasło</button></div>
-        </form>		
     </div>
-    <?php
-    if (isset($bledy) &&  $bledy[0]!="")
-    {
-        echo '<div class="alert alert-danger" role="alert">';
-        foreach($bledy as $blad)
-        {
-            echo $blad."<br>";
-        }
-        echo '</div>';
-    }
-    ?>
 <div id="l_panel_prawy" class="col-md-6">
     <h2>Ustawianie Hasła</h2>
     <p>Jeśli dotarłeś na tą stronę, to znaczy że otrzymałeś już swój unikalny kod.
