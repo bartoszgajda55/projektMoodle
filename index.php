@@ -11,6 +11,8 @@
     require_once("funkcje/f_uzytkownicy.php");
     // plik f_tabelki_z_bazy zawiera funkcje, które wyświetlają małe, jednowierszowe tabelki z bazy danych
     require_once("funkcje/f_tabelki_z_bazy.php");
+    // plik f_widgety zawiera funkcje wyświetlające małe widgetty na paskach z lewej lub z prawej strony
+    require_once("funkcje/f_widgety.php");
     // podłączenie do bazy danych
     require_once("baza/polaczenie.php");
 ?>

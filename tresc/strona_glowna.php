@@ -1,4 +1,4 @@
-<div class="col-md-2"></div>
+
 <div class="col-md-8">
        
 <?php
@@ -24,6 +24,12 @@ Ble ble ble - główna strona z informacjami dla uzytkownika.
 <?php
 $data = date("Y-m-d");
 echo $data;
+
+w_dane_usera($_SESSION['id_usera']);
+
+
 ?>
   </div>
-        <div class="col-md-2"></div>
+        <div class="col-md-4">    <?php w_lista_kursow($_SESSION['id_usera'], 4); ?></div>
+        
+    
