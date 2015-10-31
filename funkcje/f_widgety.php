@@ -82,10 +82,17 @@ function w_osatnie_lekcje($id_usera, $ilosc = 3)
             $nazwa_lekcji =  mysql_query("SELECT * FROM `lekcje` WHERE id_kursu={$r['id_kursu']} ORDER BY id_lekcji DESC LIMIT 2");
             while($g = mysql_fetch_assoc($nazwa_lekcji)) 
             {   
+                // trzecia pętla sprawdza, jak nazywa się dany kurs
+                $nazwa_kursu =  mysql_query("SELECT * FROM `kursy` WHERE id_kursu={$r['id_kursu']}");
+                while($gg = mysql_fetch_assoc($nazwa_kursu)) 
+                {
+                    $kursik = $gg['nazwa'];
+                }
+                
                 $link = "?v=tresc/u_kursy/dana_lekcja&id={$g['id_lekcji']}&id_kursu={$g['id_kursu']}";
                 echo '<tr>';
                 // wyświetlenie wiersza w tabelce z linkiem do lekcji
-                echo "<td><a href='{$link}'>{$g['temat']}</a> <br><small><i>{$r['data_zapisu']}</i></small><td>";
+                echo "<td><a href='{$link}'>{$g['temat']}</a> <br><small><b>{$kursik}</b>, <i>{$r['data_zapisu']}</i></small><td>";
                 echo '</tr>'; 
             }
         }
