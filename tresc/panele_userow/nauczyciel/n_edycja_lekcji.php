@@ -25,7 +25,18 @@
         if(isset($_POST['temat']) && $_POST['temat']!="" && isset($_POST['tresc']) && $_POST['tresc']!="")
         {   // edytujemy wpis w bazie
             if(mysql_query("UPDATE lekcje SET temat='{$_POST['temat']}', tresc='{$_POST['tresc']}', plik_nauczyciela='brak' WHERE id_lekcji={$id_lekcji}")===TRUE)
-            {   // edycja lekcji się powiodła, przekierowanie na podgląd lekcji
+            {   
+                // jeśli załączono nowy plik
+                if (isset($_FILES['plik']['name']) && $_FILES['plik']['name']!="")
+                {   
+                    // kasujemy stary
+                    plik_nauczyciel_usun($_GET['id_lekcji']);
+                    
+                    // uploadujemy nowy
+                    $errory_uploadu = upload_nauczyciel($_FILES['plik'], $_GET['id_lekcji']);
+                }
+                
+                // edycja lekcji się powiodła, przekierowanie na podgląd lekcji
                 header("Location: index.php?v=tresc/panele_userow/panel_glowny&prawa=tresc/panele_userow/nauczyciel/n_podglad_lekcji&id_lekcji={$id_lekcji}&edytowano=tak");
                 return;
             }
@@ -39,7 +50,7 @@
 <h3>Edycja lekcji id <b>#<?=$_GET['id_lekcji']?></b><hr><small>Lekcja z kursu: </small></h3>
 <?php dany_kurs($b_id_kursu); ?>
 <br>
-<form action="index.php?v=tresc/panele_userow/panel_glowny&prawa=tresc/panele_userow/nauczyciel/n_edycja_lekcji&id_lekcji=<?=$_GET['id_lekcji']?>&wyslano=tak" method="post" accept-charset="utf-8" >
+<form action="index.php?v=tresc/panele_userow/panel_glowny&prawa=tresc/panele_userow/nauczyciel/n_edycja_lekcji&id_lekcji=<?=$_GET['id_lekcji']?>&wyslano=tak" method="post" accept-charset="utf-8" ENCTYPE="multipart/form-data">
   <div class="form-group">
     <label>Temat lekcji</label>
     <input type="temat" class="form-control" id="exampleInputEmail1" placeholder="" name="temat" value="<?=$b_temat?>">
@@ -48,6 +59,11 @@
     <label>Treść lekcji</label>
     <textarea class="form-control" rows="18" name="tresc"><?=$b_tresc?></textarea>
   </div>
+  <div class="form-group ">
+    <?php plik_nauczyciel_info($_GET['id_lekcji']);  ?> 
+    <label>Nowy plik</label>
+    <input type="file" name="plik"/>
+  </div>
     <button type="submit" class="btn btn-default"><b>Zatwierdź zmiany</b></button> 
-  <a class="btn btn-default" href="index.php?v=tresc/panele_userow/panel_glowny&prawa=tresc/panele_userow/nauczyciel/n_podglad_lekcji&id_lekcji=<?=$id_lekcji?>" role="button"><i>Podgląd lekcji</i></a> <i> (Bez zatwiedzonych zmian, otwiera nową kartę) </i>
+    <a class="btn btn-default" href="index.php?v=tresc/panele_userow/panel_glowny&prawa=tresc/panele_userow/nauczyciel/n_podglad_lekcji&id_lekcji=<?=$id_lekcji?>" role="button"><i>Podgląd lekcji</i></a> <i> (Bez zatwiedzonych zmian, otwiera nową kartę) </i>
 </form>

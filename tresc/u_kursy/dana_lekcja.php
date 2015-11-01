@@ -41,6 +41,10 @@
         // wyświetlenie treści
         echo '<p>'.$r['tresc'].'</p>';
         
+        echo '<br><br>';
+        // dane z plikiem
+        plik_nauczyciel_info($id);
+        
         // link powrotny. Dodatkowo mamy wartość id_kursu. Id_kursu przechowuje id kursu do którego należy dana lekcja
         // aby móc poprawnie wrócić, musimy ja przechowywać a potem zwrócić w linku
         $link = "?v=tresc/u_kursy/lista_lekcji&id={$_GET['id_kursu']}";

@@ -30,8 +30,12 @@
         echo '<p>'.$r['tresc'].'</p>';
     }
     
+    echo '<br><br>';
+    // dane z plikiem
+    plik_nauczyciel_info($_GET['id_lekcji']);
+    
     // wyświetlenie przycisku "Edytuj lekcję"
-    echo '<br><br><br><hr><br>'
+    echo '<br><hr><br>'
             . '<a class="btn btn-default" '
             . 'href="?v=tresc/panele_userow/panel_glowny&prawa=tresc/panele_userow/nauczyciel/n_edycja_lekcji&id_lekcji='.$id_lekcji.'" role="button">'
             . ' <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edytuj lekcję</a> </i>';

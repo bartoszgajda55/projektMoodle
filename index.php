@@ -5,7 +5,7 @@
     // niechcący kod może być dołączony kilka razy, dlatego używamy dyrektywy require_once
     // plik f_include zawiera funkcje, które dołączają pliki z treścią do strony
     require_once("funkcje/f_include.php");
-  // plik f_przyciski zawiera funkcje które wyswietlaja przyciski
+    // plik f_przyciski zawiera funkcje które wyswietlaja przyciski
     require_once("funkcje/f_przyciski.php");
     // plik f_uzytkownicy zawiera funkcje, które sprawdzają zalogowanego użytkownika
     require_once("funkcje/f_uzytkownicy.php");
@@ -13,6 +13,8 @@
     require_once("funkcje/f_tabelki_z_bazy.php");
     // plik f_widgety zawiera funkcje wyświetlające małe widgetty na paskach z lewej lub z prawej strony
     require_once("funkcje/f_widgety.php");
+    // plik f_upload_plikow zawiera funkcje do uploadu i zapisu plikow
+    require_once("funkcje/f_upload_plikow.php");
     // podłączenie do bazy danych
     require_once("baza/polaczenie.php");
 ?>

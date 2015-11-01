@@ -110,24 +110,21 @@ Tabele z bazy danych
 
 
 
+Zrobione: cały upload dla nauczyciela i pobieranie tych plików
 
 
 Do zrobienia:
-    - dodawanie plików przez nauczyciela do lekcji
-    - dodawanie plików przez uzytkownika do lekcji
+     - dodawanie plików przez uzytkownika do lekcji - jak to zrobic?
+     - dokumentacja projektu
+
 DODAWANIE PLIKOW:
- - funkcje/f_upload_plikow - bedą znajdować sie tutaj funkcje, które będą odpowiednio zapisaywać wysyłany plik.
-                             wystarczy taką funkcję wywołąć w skrypcie i jako argument podać zmienną z formularza
-                             funkcja powinna zająć się wszystkim dalej.
-                             Robione jest to w taki sposób, gdyż upload plików może być robiony w kilku miejscach strony. 
-                             Oszczędza to czasu i jest wygodniejsze w użyciu a także kod wygląda czytelniej
+ - funkcje/f_upload_plikow - bedą znajdować sie tutaj funkcje, które będą odpowiednio uploadowac i zapisaywać wysyłany plik.            
  - upload - folder będzie zawierał pliki z uploadu
 
- - upload nauczyciela - nie jest to trudny kod. Wystarczy dodac info do tabeli z lekcjami
- - upload dla ucznia - do pomyślenia/przemyślenia
-    
 
-    - dokumentacja projektu
+
+
+
     
 Cytat z zadania: "Nauczyciel ma możliwość tworzenia kursów. W obrębie własnego
                  kursu nauczyciel ma możliwość zapisywania użytkowników, 

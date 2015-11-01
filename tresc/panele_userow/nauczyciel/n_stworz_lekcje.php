@@ -22,9 +22,19 @@
             // wszystko jest poprawnie wypełnione, można dodawać lekcję do bazy
             if(mysql_query("INSERT INTO lekcje (id_kursu, temat, tresc) VALUES ('{$_GET['id_kursu']}','{$_POST['temat']}','{$_POST['tresc']}')")===TRUE)
             {
+                // sprawdzenie czy wysyłamy plik
+                if (isset($_FILES['plik']['name']) && $_FILES['plik']['name']!="")
+                {   // upload pliku
+                    $errory_uploadu = upload_nauczyciel($_FILES['plik'], 0);
+                    // jeśli wystąpiły błędy uploadu, to je przesyłamy i wyświetlamy
+                    if ($errory_uploadu!="") 
+                    {
+                        // przesłanie info o errorach uploadu
+                        header("Location: index.php?v=tresc/panele_userow/panel_glowny&prawa=tresc/panele_userow/nauczyciel/n_lista_lekcji_w_kursie&id_kursu={$_GET['id_kursu']}&dodano_lekcje=tak&errory_uploadu={$errory_uploadu}");
+                        return;
+                    }
+                }
                 // dodanie się powiodło, można przekierować na stronę lista_kursow i wyświetlić komunikat o powodzeniu
-                // przekierowanie na listę kursów (trochę nietrafne, dlatego w komentarzu)
-                //header("Location: index.php?v=tresc/panele_userow/panel_glowny&prawa=tresc/panele_userow/nauczyciel/n_lista_kursow&dodano_lekcje=tak");
                 // niżej przekierowanie lepsze, bo na listę lekcji w danym kursie
                 header("Location: index.php?v=tresc/panele_userow/panel_glowny&prawa=tresc/panele_userow/nauczyciel/n_lista_lekcji_w_kursie&id_kursu={$_GET['id_kursu']}&dodano_lekcje=tak");
                 return;
@@ -41,7 +51,7 @@
 <?php // informacje o danym kursie, do którego dodajemy lekcję
  dany_kurs($_GET['id_kursu']);
  ?><br>
-<form action="index.php?v=tresc/panele_userow/panel_glowny&prawa=tresc/panele_userow/nauczyciel/n_stworz_lekcje&wyslano=tak&id_kursu=<?=$_GET['id_kursu']?>" method="post" accept-charset="utf-8" >
+<form action="index.php?v=tresc/panele_userow/panel_glowny&prawa=tresc/panele_userow/nauczyciel/n_stworz_lekcje&wyslano=tak&id_kursu=<?=$_GET['id_kursu']?>" method="post" ENCTYPE="multipart/form-data" accept-charset="utf-8" >
   <div class="form-group">
     <label>Temat lekcji</label>
     <input type="nazwa" class="form-control" id="exampleInputEmail1" placeholder="" name="temat">
@@ -49,6 +59,10 @@
   <div class="form-group ">
     <label>Treść lekcji</label>
     <textarea class="form-control" rows="18" name="tresc"></textarea>
+  </div>
+   <div class="form-group">
+    <label>Plik</label>
+    <input type="file" name="plik"/>
   </div>
   <button type="submit" class="btn btn-default">Stwórz lekcję</button>
 </form>

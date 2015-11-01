@@ -33,6 +33,12 @@
         komunikat("Dodano lekcję poprawnie","success");
         echo '<br>';
     }
+      // wyświetlenie komunikatu z pliku n_stworz_lekcje - errory uploadu
+    if (isset($_GET['errory_uploadu']))
+    {
+        komunikat("Plik nie został wysłany. Spróbuj wejść w edycję lekcji i wyślij go ponownie. Wystąpiły błędy <br> {$_GET['errory_uploadu']}","wargning");
+        echo '<br>';
+    }
 ?>
 <a class="btn btn-default" href="index.php?v=tresc/panele_userow/panel_glowny&prawa=tresc/panele_userow/nauczyciel/n_stworz_lekcje&id_kursu=<?=$_GET['id_kursu']?>"
    role="button"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Dodaj nową lekcję</a><br><br>
