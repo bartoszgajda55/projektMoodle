@@ -1,0 +1,1 @@
+ALTER TABLE `wszystko` ADD INDEX ( `nazwa` );

@@ -1,0 +1,1 @@
+pliki tymczasowe

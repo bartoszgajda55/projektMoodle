@@ -1,0 +1,45 @@
+CREATE TABLE `pokoje_goscie` (
+`id_wpisu` varchar(30) NOT NULL,
+`id_pokoju` varchar(10),
+`id_goscia` int4,
+CONSTRAINT `pokoje_goscie_pkey` PRIMARY KEY (`id_wpisu`)
+);
+
+CREATE TABLE `goscie` (
+`id_goscia` int4 NOT NULL,
+`imie_goscia` varchar(45),
+`nazwisko_goscia` varchar(50),
+CONSTRAINT `goscie_pkey` PRIMARY KEY (`id_goscia`)
+);
+
+CREATE TABLE pokoje (
+id_pokoju varchar(10) NOT NULL,
+opis_pokoju varchar(250),
+ilosc_lazienek int4,
+ilosc_miejsc int4,
+CONSTRAINT `pokoje_pkey` PRIMARY KEY (`id_pokoju`)
+);
+
+
+
+
+
+
+
+
+
+
+
+ALTER TABLE `pokoje_goscie` ADD CONSTRAINT `id_pokoju` FOREIGN KEY (`id_pokoju`) REFERENCES `pokoje` (`id_pokoju`);
+
+ALTER TABLE `pokoje_goscie` ADD CONSTRAINT `id_goscia` FOREIGN KEY (`id_goscia`) REFERENCES `goscie` (`id_goscia`);
+
+
+
+
+
+
+
+
+
+
