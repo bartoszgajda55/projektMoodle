@@ -19,8 +19,13 @@
     {   // sprawdzamy poprawność pól
         if (isset($_POST['temat']) && $_POST['temat']!="" && isset($_POST['tresc']) && $_POST['tresc']!="")
         {
+            // przystosowanie pól wyboru radio
+            if ($_POST['radioo']=="o1") $radioo = "";
+            else if ($_POST['radioo']=="o2") $radioo = "p";
+            else if ($_POST['radioo']=="o3") $radioo = "t";
+            
             // wszystko jest poprawnie wypełnione, można dodawać lekcję do bazy
-            if(mysql_query("INSERT INTO lekcje (id_kursu, temat, tresc) VALUES ('{$_GET['id_kursu']}','{$_POST['temat']}','{$_POST['tresc']}')")===TRUE)
+            if(mysql_query("INSERT INTO lekcje (id_kursu, temat, tresc, typ_odpowiedzi) VALUES ('{$_GET['id_kursu']}','{$_POST['temat']}','{$_POST['tresc']}', '{$radioo}')")===TRUE)
             {
                 // sprawdzenie czy wysyłamy plik
                 if (isset($_FILES['plik']['name']) && $_FILES['plik']['name']!="")
@@ -64,5 +69,16 @@
     <label>Plik</label>
     <input type="file" name="plik"/>
   </div>
+    
+    <label class="radio-inline">
+      <input type="radio" name="radioo" id="inlineRadio1" value="o1" checked> Brak wymagań
+    </label><br>
+    <label class="radio-inline">
+      <input type="radio" name="radioo" id="inlineRadio2" value="o2"> Wymagane wysłania pliku
+    </label><br>
+    <label class="radio-inline">
+      <input type="radio" name="radioo" id="inlineRadio3" value="o3"> Wymagana odpowiedź tekstowa
+    </label><br>
+    
   <button type="submit" class="btn btn-default">Stwórz lekcję</button>
 </form>

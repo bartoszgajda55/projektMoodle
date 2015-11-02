@@ -25,14 +25,3 @@ w_dane_usera($_SESSION['id_usera']);
 <div  class="col-md-4">      <?php w_osatnie_lekcje($_SESSION['id_usera'], 4); ?>    </div>
       
 <div id="z_strona_glowna_prawa" class="col-md-4">    <?php w_lista_kursow($_SESSION['id_usera'], 4);  ?>    </div>
-        TESTY TESTY
-       <hr><hr>
-       asd<hr>
-       
-       <?php
-       echo upload_sprawdz_typ(25);
-       
-       plik_uczen_info(4, 1);
-       
-       ?>
-       
