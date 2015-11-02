@@ -27,15 +27,14 @@
         echo "<h3><small>Temat:</small> {$r['temat']} </h3>";
         echo '<hr><br>';
         // wyświetlenie treści
-        echo '<p>'.$r['tresc'].'</p>';
+        echo '<p>'.$r['tresc'].'</p><hr>';
     }
     
-    echo '<br><br>';
     // dane z plikiem
     plik_nauczyciel_info($_GET['id_lekcji']);
     
     // wyświetlenie przycisku "Edytuj lekcję"
-    echo '<br><hr><br>'
+    echo '<br>'
             . '<a class="btn btn-default" '
             . 'href="?v=tresc/panele_userow/panel_glowny&prawa=tresc/panele_userow/nauczyciel/n_edycja_lekcji&id_lekcji='.$id_lekcji.'" role="button">'
             . ' <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edytuj lekcję</a> </i>';
