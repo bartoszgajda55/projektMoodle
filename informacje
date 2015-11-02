@@ -114,12 +114,14 @@ Zrobione: cały upload dla nauczyciela i pobieranie tych plików
 
 
 Do zrobienia:
-     - dodawanie plików przez uzytkownika do lekcji - jak to zrobic?
-     - dokumentacja projektu
+      - dokonczyc dodawnie plikow do lekcji przez uzytkownika:
+             - dodawanie pliku przez usera
+             - dodawanie odpowiedzi tekstowej przez usera
+             - ustawienie przez nauczyciela, czy jest wymagany plik, czy odpowiedz tekstowa czy nic
+        zrobione: wyswietlanie plikow lub odpowiedzi przez nauczyciela oraz funkcje w f_upload_plikow
 
-DODAWANIE PLIKOW:
- - funkcje/f_upload_plikow - bedą znajdować sie tutaj funkcje, które będą odpowiednio uploadowac i zapisaywać wysyłany plik.            
- - upload - folder będzie zawierał pliki z uploadu
+
+     - dokumentacja projektu
 
 
 

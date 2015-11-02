@@ -48,6 +48,7 @@
                 <th>Nr. lekcji</th>
                 <th>Temat</th>
                 <th>Edycja</th>
+                <th>Pliki / Odp. </th>
              </tr>
         </thead>
         <tbody>
@@ -66,12 +67,17 @@
         $podglad_lekcji = "index.php?v=tresc/panele_userow/panel_glowny"
                 . "&prawa=tresc/panele_userow/nauczyciel/n_podglad_lekcji"
                 . "&id_lekcji={$r['id_lekcji']}";
+        // link do pliku z podglądem uploadowanych plików przez uczniów
+        $podglad_plikow = "index.php?v=tresc/panele_userow/panel_glowny"
+                . "&prawa=tresc/panele_userow/nauczyciel/n_podglad_plikow"
+                . "&id_lekcji={$r['id_lekcji']}";
                 
         echo '<tr>';
         echo '<td>'.$nr.'</td>';
         echo '<td><a href="'.$podglad_lekcji.'">'.$r['temat'].'</a></td>';
         // przyciski
         echo '<td><a class="btn btn-default" href="'.$edycja_lekcji.'" role="button"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>';
+        echo '<td><a class="btn btn-default " href="'.$podglad_plikow.'" role="button"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> / <span class="glyphicon glyphicon-text-size" aria-hidden="true"></span> </a></td>';
         echo '<td><a class="btn btn-default " href="'.$podglad_lekcji.'" role="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Podgląd lekcji</a></td>';
         echo '</tr>'; 
     }
