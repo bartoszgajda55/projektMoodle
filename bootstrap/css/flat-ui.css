@@ -4169,6 +4169,7 @@ fieldset[disabled] .input-group-btn .btn-default.active {
   font-size: 16px;
   font-weight: 700;
   line-height: 23px;
+  padding-top: 22px;
   }
 .navbar-nav > li > a:hover,
 .navbar-nav > li > a:focus,
