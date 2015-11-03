@@ -27,9 +27,14 @@
         // jesli wszystko ok, to wysyłamy
         else 
         {
-        echo '<div class="alert alert-success" role="alert">Wysłano kod to zresetowania hasła!</div>';
+            @$kod_tajemny = (((rand(1,1000)%20+1-7*2)/2+3)*2)+400 *11;
+            $kod_do_bazy = mysql_query("UPDATE uzytkownicy SET reset_hasla = '$kod_tajemny' WHERE uzytkownicy.login = '$login'");
+            
+            @mail($email, "Proszek po 5 zł, a dokładniej hasło", "Oj w mordeczkę, kody za darmo rozdajemy. Tutaj taki ładny do resetu hasła, co by nie był zbyt wartościowy. Oto kod {$kod_tajemny}");
+            
+            echo '<div class="alert alert-success" role="alert">Wysłano kod to zresetowania hasła!</div>';
         }
-    }   
+    }  
 ?>
 <div class="row">
     <div id="l_panel_lewy" class="col-md-6">

@@ -234,7 +234,7 @@ function upload_plik_uczen($id_uzytkownika, $id_lekcji, $plik)
         $plik_tmp = $plik['tmp_name'];
         $plik_nazwa = $plik['name'];
         $plik_rozmiar = $plik['size'];
-        $plik_rozszerzenie = strtolower(end(explode('.',$plik['name'])));
+        @$plik_rozszerzenie = strtolower(end(explode('.',$plik['name'])));
         
         if(is_uploaded_file($plik_tmp))
         {   // jeśli plik został przesłany to kopiujemy go do katalogu tmp (tymczasowego)
