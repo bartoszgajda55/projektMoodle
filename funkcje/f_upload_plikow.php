@@ -91,7 +91,7 @@ function plik_nauczyciel_link($id_lekcji)
     {   // przypisanie id ostatniej lekcji
         $plik = $r['plik_nauczyciela'];
         // jeśli nazwa pliku to pusty ciąg to zwracamy "nie"
-        if ($plik=="" || $plik=="NULL")
+        if ($plik=="" || $plik=="NULL" || $plik=="brak" || $plik=="nie")
         {
             return "nie";
         }
@@ -234,7 +234,7 @@ function upload_plik_uczen($id_uzytkownika, $id_lekcji, $plik)
         $plik_tmp = $plik['tmp_name'];
         $plik_nazwa = $plik['name'];
         $plik_rozmiar = $plik['size'];
-        $plik_rozszerzenie = strtolower(end(explode('.',$plik['name'])));
+        @$plik_rozszerzenie = strtolower(end(explode('.',$plik['name'])));
         
         if(is_uploaded_file($plik_tmp))
         {   // jeśli plik został przesłany to kopiujemy go do katalogu tmp (tymczasowego)
@@ -275,24 +275,29 @@ function upload_plik_uczen($id_uzytkownika, $id_lekcji, $plik)
 function plik_uczen_link($id_uzytkownika, $id_lekcji)
 {
     // jeżeli do tego zadania nie da się wysyłać pliku, anulujemy wykonywanie funkcji
-    if (upload_sprawdz_typ($id_lekcji)!= "p") return "zly_typ_lekcji";
+    if (upload_sprawdz_typ($id_lekcji)!= "p") return "nie";
     
     // tworzymy zapytanie do bazy danych o plik
     $zapytanie = mysql_query("SELECT * FROM odp_ucznia WHERE id_lekcji={$id_lekcji} AND id_uzytkownika={$id_uzytkownika}") or die('Błąd zapytania 1');
     
     // pobranie adresu pliku
+    $plik="";
     while($r = mysql_fetch_assoc($zapytanie)) 
     {   
         $plik = $r['plik_ucznia'];
         // jeśli nazwa pliku to pusty ciąg to zwracamy "nie"
-        if ($plik=="" || $plik=="NULL")
+        if ($plik=="" || $plik=="NULL" || $plik=="brak" || $plik=="nie")
         {
             return "nie";
         }
-    }
-    // jeśli plik istenieje w tej lekcji, zwracamy ścieżkę dostępu do pliku
+        // jeśli plik istenieje w tej lekcji, zwracamy ścieżkę dostępu do pliku
     $cala_sciezka = "upload/pliki_uczen/".$plik;
     return $cala_sciezka;
+    }
+    
+    // jeśli jednak w bazie nie ma rekordu to
+    return "nie";
+    
 }
 
 // wyświetla ładną tabelkę z informacjami o pliku ucznia dla danej lekcji
@@ -328,6 +333,53 @@ function plik_uczen_info($id_uzytkownika, $id_lekcji, $kolor="info")
 }
 
 
+// usuwa plik ucznia podany w parametrach
+function plik_uczen_usun($id_uzytkownika, $id_lekcji)
+{
+    // jeśli plik nie istenieje, nic nie robimy
+    if (plik_uczen_link($id_uzytkownika, $id_lekcji)=="nie") return;
+    
+    // jeśli jednak plik istenieje, usuwamy go funkcją unlink
+    unlink(plik_uczen_link($id_uzytkownika, $id_lekcji));
+    
+    // następnie usuwamy informacje o nim z bazy
+    if(mysql_query("DELETE FROM `odp_ucznia` WHERE id_uzytkownika ='{$id_uzytkownika}' AND id_lekcji='{$id_lekcji}'")===TRUE)
+    {
+        $baza = "ok";
+    }
+}
 
+// usuwa odpowiedz uzytkownika poprzez podane dane
+function odp_uczen_usun($id_uzytkownika, $id_lekcji)
+{ 
+    // następnie usuwamy informacje o nim z bazy
+    if(mysql_query("DELETE FROM `odp_ucznia` WHERE id_uzytkownika ='{$id_uzytkownika}' AND id_lekcji='{$id_lekcji}'")===TRUE)
+    {
+        $baza = "ok";
+    }
+}
+
+
+// zwraca FALSE jesli nie ma odpowiedzi
+// zwraca odpowiedz, jesli takowa istenieje
+function uczen_odpowiedz_wyswietl($id_uzytkownika, $id_lekcji)
+{
+    
+// jeżeli do tego zadania nie da się wysłac odpowiedzi tekstowej, funkcję przerywamy
+    if (upload_sprawdz_typ($id_lekcji)!= "t") return;
+    
+    // pobieramy odpowiedz tekstową
+    $wynik = mysql_query("SELECT odpowiedz_pisemna FROM odp_ucznia WHERE id_uzytkownika='{$id_uzytkownika}' AND id_lekcji='{$id_lekcji}'");
+    // jeśli odpowieź nie istnieje, zwracamy false
+    if(mysql_num_rows($wynik) <= 0) return FALSE;
+    // jeśli odpowiedź istenieje, zwracamy ją
+    if(mysql_num_rows($wynik) > 0) 
+    {
+        while($r = mysql_fetch_assoc($wynik)) 
+        {
+            return $r['odpowiedz_pisemna'];
+        }
+    } 
+}
 
 ?>

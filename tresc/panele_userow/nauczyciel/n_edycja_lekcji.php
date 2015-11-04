@@ -23,8 +23,14 @@
     if (isset($_GET['wyslano']) && $_GET['wyslano']=="tak")
     {   // sprawdzamy, czy pola są wypełnione
         if(isset($_POST['temat']) && $_POST['temat']!="" && isset($_POST['tresc']) && $_POST['tresc']!="")
-        {   // edytujemy wpis w bazie
-            if(mysql_query("UPDATE lekcje SET temat='{$_POST['temat']}', tresc='{$_POST['tresc']}', plik_nauczyciela='brak' WHERE id_lekcji={$id_lekcji}")===TRUE)
+        {   
+            // przystosowanie pól wyboru radio
+            if ($_POST['radioo']=="o1") $radioo = "";
+            else if ($_POST['radioo']=="o2") $radioo = "p";
+            else if ($_POST['radioo']=="o3") $radioo = "t";
+            
+            // edytujemy wpis w bazie
+            if(mysql_query("UPDATE lekcje SET temat='{$_POST['temat']}', tresc='{$_POST['tresc']}', plik_nauczyciela='brak', typ_odpowiedzi='{$radioo}' WHERE id_lekcji={$id_lekcji}")===TRUE)
             {   
                 // jeśli załączono nowy plik
                 if (isset($_FILES['plik']['name']) && $_FILES['plik']['name']!="")
@@ -64,6 +70,17 @@
     <label>Nowy plik</label>
     <input type="file" name="plik"/>
   </div>
+    
+    <label class="radio-inline">
+      <input type="radio" name="radioo" id="inlineRadio1" value="o1" checked> Brak wymagań
+    </label><br>
+    <label class="radio-inline">
+      <input type="radio" name="radioo" id="inlineRadio2" value="o2"> Wymagane wysłania pliku
+    </label><br>
+    <label class="radio-inline">
+      <input type="radio" name="radioo" id="inlineRadio3" value="o3"> Wymagana odpowiedź tekstowa
+    </label><br>
+    
     <button type="submit" class="btn btn-default"><b>Zatwierdź zmiany</b></button> 
     <a class="btn btn-default" href="index.php?v=tresc/panele_userow/panel_glowny&prawa=tresc/panele_userow/nauczyciel/n_podglad_lekcji&id_lekcji=<?=$id_lekcji?>" role="button"><i>Podgląd lekcji</i></a> <i> (Bez zatwiedzonych zmian, otwiera nową kartę) </i>
 </form>

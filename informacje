@@ -1,4 +1,4 @@
-Plik z ogólnymi informacjami, mini dokumentacja projektu
+Plik z ogólnymi informacjami, dokumentacja projektu
 
 Nazwy zmiennych sesyjnych;
     $_SESSION['zalogowany']; - przechowuje TRUE, jeśli uzytkownik jest zalogowany
@@ -14,6 +14,8 @@ Funkcje:
          - pierwszy argument to nazwa zmiennej $_GET z pasku adresu
          - drugi argument to domyślny plik który ma się wyświuetlić, gdy ta zmienna nie istenieje
 
+    komunikat($tresc, $kolor) - wyświetla komunikat z $treść w ramce koloru $kolor (np success, info, danger, warning)
+
     standardowy_przycisk($adres, $tresc, [$podswietlenie=1]) - tworzy przycisk
          - pierwszy argument to adres przycisku (<a href="">
          - drugi argument to nazwa wyświetlana na przycisku
@@ -27,11 +29,32 @@ Funkcje:
         - pierwszy argument $id to id użytkownika
         - drugi rargument opcjonalny, określa kolor komunikatu (success, warning, danger, info, itd)
 
+    odp_uczen_usun($id_uzytkownika, $id_lekcji)
+    plik_nauczyciel_info($id_lekcji, $kolor)
+    string plik_nauczyciel_link($id_lekcji)
+    plik_nauczyciel_usun($id_lekcji)
+    plik_nauczyciel_info($id_uzytkownika, $id_lekcji, $kolor)
+    string plik_uczen_link($id_uzytkownika, $id_lekcji)
+    plik_uczen_usun($id_uzytkownika, $id_lekcji)
+    uczen_odpowiedz_wyswietl($id_uzytkownika, $id_lekcji)
+    upload_nauczyciel($plik, $id_lekcji)
+    upload_odp_tekst($id_uzytkownika, $id_lekcji, $odpowiedz)
+    upload_plik_uczen($id_uzytkownika, $id_lekcji, $plik)
+    upload_sprawdz_typ($id_lekcji)
+
     zalogowany() - zwraca TRUE jeśli użytkownik jest zalogowany, w przeciwnym wypadku FALSE
     zalogowano() - to samo co wyżej, tylko inna nazwa
     admin() - zwraca TRUE jeśli zalogowany jest admin, w przeciwnym wypadku FALSE
     nauczyciel() - zwraca TRUE, jeśli jest zalogowany nauczycie. W przeciwnym wypadku FALSE
     
+    w_dane_usera($id_usera)
+    w_kalendarz($id_usera)
+    w_lista_kursow($id_usera, $ilosc)
+    w_ostatnie_lekcje($id_usera, $ilosc)
+
+
+
+
 
 Struktura katalogów: (@ - to folder; # - to plik)
 
@@ -41,13 +64,15 @@ Struktura katalogów: (@ - to folder; # - to plik)
     
     @ bootstrap - znajdują się tu wszystkie pliki z bootstrapa, lepiej nie mieszać nic tam
     
-    @ funkcje - pliki z funkcjami i pliki "statyczne" (wyświetlane na każdej podstronie
+    @ funkcje - pliki z funkcjami i pliki "statyczne" (wyświetlane na każdej podstronie)
       - prefix f_ oznacza, że plik zawiera funkcje
         # f_include.php - plik z funkcjami do podłączania plików
         # f_przyciski.php - funkcje wyświetlające przyciski (linki)
         # f_tabelki_z_bazy.php - funckje wyświetlające tabelkę o użytkowniku lub o kursie
+        # f_upload_plikow.php - funkcje do uploadu plików od nauczyciela i ucznia
         # f_uzytkownicy.php - funkcje sprawdzające stan zalogowania użytkownika
-        # head.php - plik z <head> storny z <html>
+        # f_widgety.php - funkcje z widgetami, czyli małymi tabelkami z informacjami o ostatnim kursie, ostatnich lekcjach, itp
+        # head.php - plik z <head> z <html>
         # menu_gorna_belka.php - menu z górną belką, która wyświetla się na każdej stronie
 
     @ img - folder z obrazkami
@@ -58,40 +83,51 @@ Struktura katalogów: (@ - to folder; # - to plik)
             # wyloguj.php - kasuje sesję i wylogowywuje użytkownika
         @ panele_userow - zawiera panel użytkownika z podstronami
             @ admin - zawiera funkcje panelu tylko dla administratora
-                # a_degraduj_na_ucznia.php - 
-                # a_dodawanie_usera_do_kursu1.php - 
-                # a_dodawanie_usera_do_kursu2.php - 
-                # a_dodawanie_usera_do_kursu3.php - 
-                # a_mianuj_na_nauczyciela.php - 
-                # a_zablokuj_kurs1.php - 
-                # a_zablokuj_odblokuj.php - 
-                # a_zarzadzanie_uzytkowniakmi.php - 
+                # a_degraduj_na_ucznia.php - zmienia rangę użytkownika na "uczeń (u)"
+                # a_dodawanie_usera_do_kursu1.php - 3 krokowy "kreator" dodawania użytkownika do kursu.
+                # a_dodawanie_usera_do_kursu2.php - W pierwszym kroku wybieramy użytkownika, w drugim kurs.
+                # a_dodawanie_usera_do_kursu3.php - Natomiast w trzecim potwierdzamy nasz wybór i użytkownik zostaje dodany do danego kursu.
+                # a_mianuj_na_nauczyciela.php - zmienia rangę na nauczyciel (n)
+                # a_zablokuj_kurs1.php - blokuje kurs. Zablokowany kurs nie jest widoczny dla nauczycieli i uczniów (ranga: blocked)
+                # a_zablokuj_odblokuj.php - Blokuje lub odblokowywuje użytkownika. Zablokowany user nie może się logować
+                # a_zarzadzanie_uzytkowniakmi.php - wyświetla tabelkę z użytkownikami i umożliwia zarządzanie nimi (blokada konta, zdjęcie blokady konta, mianowanie na nauczyciela, degradowanie do ucznia)
             @ nauczyciel - zawiera funkcje panelu dla nauczyciela a także i dla administratora
-                # n_edycja_kursu.php - 
-                # n_lista_kursow.php - 
-                # n_stworz_kurs.php - 
-                # n_usun_z_kursu1.php - 
-                # n_usun_z_kursu2.php - 
-                # n_usun_z_kursu3.php - 
+                # n_edycja_kursu.php - Edycja danych danego kursu (czyli zmiana nazwy kursu i kodu dostępu)
+                # n_edycja_lekcji.php - Edycja danej lekcji, czyli zmiana nazwy, treści. Nauczyciel ma możliwość uploadu pliku i wybrania typu odpowiedzi, jaką ma odesłać uczeń.
+                # n_lista_kursow.php - Wyświetla listę kursów.
+                # n_lista_lekcji_w_kursie.php - Wyświetla listę lekcji w danym kursie
+                # n_podglad_lekcji.php - Wyświetla lekcję.
+                # n_podglad_plikow.php - wyświetla tabelkę z odpowiedziami użytkowników: albo to tabelka z plikami albo z odpowiedziami tekstowymi
+                # n_stworz_kurs.php - tworzy nowy kurs (dla nauczyciela)
+                # n_stworz_kurs_admin.php - tworzy nowy kurs (dla admina)
+                # n_stworz_lekcje.php - tworzy nową lekcję
+                # n_usun_z_kursu1.php - 3 krokowy kreator. Usuwa dostęp użytkownikowi do danego kursu
+                # n_usun_z_kursu2.php - W pierwszym kroku wybieramy kurs, w drugim użytkownika
+                # n_usun_z_kursu3.php - W trzecim kroku potwierdzamy naszą decyzję u user zostaje "odpisany" od kursu
             @ uczen - zawiera funkcje panelu dla ucznia, nauczyciela i administratora
-                # u_info.php - 
-                # u_zmiana_hasla.php - 
-            # panel_glowny.php - główny panel z menu po lewej i z miejscem do wyświetlania informacji z prawej
+                # u_info.php - wyświetla info o zalogowanym userze
+                # u_zmiana_hasla.php - umożliwia zmianę hasła
+            # panel_glowny.php - główny panel, wyświetla menu linków z lewej. Z prawej wyświetla plik podany przez $_GET w adresie.
         @ przypomnij_haslo - zawiera pliki służące do przypominania hasła
-            # przypomnij.php - 
-            # reset.php - 
+            # przypomnij.php - formularz z wysylką kodu na maila
+            # reset.php - ustawienie nowego hasła
         @ rejestracja - pliki z formularzami i skryptami do rejstracji
             # rejestracja.php - formularz i skrypt rejestracji użytkownika
         @ u_kursy - kursy danego użytkownika (ucznia)
-            # dana_lekcja.php - 
-            # dolacz_mnie_do_kursu.php - 
-            # lista_kursow_uzytkownika.php - 
-            # lista_lekcji.php - 
+            # dana_lekcja.php - wyświetla daną lekcje. Umożliwia wysłanie odpowiedzi tekstowej lub pliku
+            # dolacz_do_kursu.php - Umożliwia podanie kodu dostępu i dodaje użytkownika do kursu
+            # lista_kursow_uzytkownika.php - wyświetla listę kursów zalgowanego ucznia
+            # lista_lekcji.php - wyświetla listę lekcji w danym kursie
 
-        # strona_glowna.php - treść z główną stroną wyświetlaną po wejściu na witrynę (na razie nie działa)
+        # strona_glowna.php - treść z główną stroną wyświetlaną po zalogowaniu.
 
-    # index.php - główny plik który jest uruchamiany po odpaleniu strony
-    # informacje - plik z informacjami
+    @ upload - folder z plikami z uploadu
+        @ pliki_nauczyciel - pliki zuploadowane przez nauczyciela
+            @ tmp - folder z plikami tymczasowymi, potrzebny do uploadu
+        @ pliki_uczen - pliki zuploadowane przez ucznia
+
+    # index.php - główny plik który jest uruchamiany po odpaleniu strony. Dołącza on inne pliki i wyświetla podstrony
+    # informacje - ten plik
 
 
 Tabele z bazy danych
@@ -106,31 +142,3 @@ Tabele z bazy danych
 
  - zapisy
     | id_zapisu | id_uzytkownika | id_kursu | data_zapisu | plik_uzytkownika |
-
-
-
-
-Zrobione: cały upload dla nauczyciela i pobieranie tych plików
-
-
-Do zrobienia:
-      - dokonczyc dodawnie plikow do lekcji przez uzytkownika:
-             - dodawanie pliku przez usera
-             - dodawanie odpowiedzi tekstowej przez usera
-             - ustawienie przez nauczyciela, czy jest wymagany plik, czy odpowiedz tekstowa czy nic
-        zrobione: wyswietlanie plikow lub odpowiedzi przez nauczyciela oraz funkcje w f_upload_plikow
-
-
-     - dokumentacja projektu
-
-
-
-
-
-    
-Cytat z zadania: "Nauczyciel ma możliwość tworzenia kursów. W obrębie własnego
-                 kursu nauczyciel ma możliwość zapisywania użytkowników, 
-                dodawania plików do lekcji, tworzenia zadań, 
-                umożliwiających pobranie pliku od użytkownika lub bezpośredniej 
-                treści wpisanej na stronie zadania (podobnie jak w moodle)."
-

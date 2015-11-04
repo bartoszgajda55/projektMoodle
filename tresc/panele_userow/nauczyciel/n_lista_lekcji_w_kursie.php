@@ -48,7 +48,7 @@
                 <th>Nr. lekcji</th>
                 <th>Temat</th>
                 <th>Edycja</th>
-                <th>Pliki / Odp. </th>
+                <th>Typ lekcji - sprawdź</th>
              </tr>
         </thead>
         <tbody>
@@ -70,14 +70,18 @@
         // link do pliku z podglądem uploadowanych plików przez uczniów
         $podglad_plikow = "index.php?v=tresc/panele_userow/panel_glowny"
                 . "&prawa=tresc/panele_userow/nauczyciel/n_podglad_plikow"
-                . "&id_lekcji={$r['id_lekcji']}";
-                
+                . "&id_lekcji={$r['id_lekcji']}"; 
+        // sprawdzenie typu lekcji (czy wymaga pliku, tekstu czy nic)
+        if (upload_sprawdz_typ($r['id_lekcji'])=="") $typ_lekcji = '<p class="btn btn-default" role="button"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></a>';
+        else if (upload_sprawdz_typ($r['id_lekcji'])=="p") $typ_lekcji = '<a class="btn btn-info" href="'.$podglad_plikow.'" role="button"><span class="glyphicon glyphicon-file" aria-hidden="true"></span></span> </a>';
+        else if (upload_sprawdz_typ($r['id_lekcji'])=="t") $typ_lekcji = '<a class="btn btn-info" href="'.$podglad_plikow.'" role="button"><span class="glyphicon glyphicon-text-size" aria-hidden="true"></span> </a>';
+            
         echo '<tr>';
         echo '<td>'.$nr.'</td>';
         echo '<td><a href="'.$podglad_lekcji.'">'.$r['temat'].'</a></td>';
         // przyciski
         echo '<td><a class="btn btn-default" href="'.$edycja_lekcji.'" role="button"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>';
-        echo '<td><a class="btn btn-default " href="'.$podglad_plikow.'" role="button"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> / <span class="glyphicon glyphicon-text-size" aria-hidden="true"></span> </a></td>';
+        echo '<td>'.$typ_lekcji.'</td>';
         echo '<td><a class="btn btn-default " href="'.$podglad_lekcji.'" role="button"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Podgląd lekcji</a></td>';
         echo '</tr>'; 
     }
