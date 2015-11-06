@@ -107,10 +107,4 @@ function w_osatnie_lekcje($id_usera, $ilosc = 3)
           .'</div>'
           .'</div>';
 }
-
-// widget kalendarz - wyświetla kalendarz, który z niczym nie jest powiązany
-function w_kalendarz()
-{
-    
-}
 ?>

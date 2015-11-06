@@ -9,7 +9,7 @@ Nazwy zmiennych sesyjnych;
     $_SESSION['nazwisko']; - nazwisko użytkownika
 
 
-Funkcje:
+FUNKCJE:
     dolacz_plik($nazwa_zmiennej_get, $domyslny_plik) - dołącza plik ze zmiennej GET
          - pierwszy argument to nazwa zmiennej $_GET z pasku adresu
          - drugi argument to domyślny plik który ma się wyświuetlić, gdy ta zmienna nie istenieje
@@ -28,41 +28,43 @@ Funkcje:
     dany_user($id, $kolor="warning") - wyświetla informację o jednym (podanym w id) userze
         - pierwszy argument $id to id użytkownika
         - drugi rargument opcjonalny, określa kolor komunikatu (success, warning, danger, info, itd)
-
-    odp_uczen_usun($id_uzytkownika, $id_lekcji)
-    plik_nauczyciel_info($id_lekcji, $kolor)
-    string plik_nauczyciel_link($id_lekcji)
-    plik_nauczyciel_usun($id_lekcji)
-    plik_nauczyciel_info($id_uzytkownika, $id_lekcji, $kolor)
-    string plik_uczen_link($id_uzytkownika, $id_lekcji)
-    plik_uczen_usun($id_uzytkownika, $id_lekcji)
-    uczen_odpowiedz_wyswietl($id_uzytkownika, $id_lekcji)
-    upload_nauczyciel($plik, $id_lekcji)
-    upload_odp_tekst($id_uzytkownika, $id_lekcji, $odpowiedz)
-    upload_plik_uczen($id_uzytkownika, $id_lekcji, $plik)
-    upload_sprawdz_typ($id_lekcji)
-
+        
+    Funkcje do uploadu plików i zarządzania nimi:
+      $id_uzytkownika - użytkownik, który przesyła plik lub odpowiedź
+      $id_lekcji - id lekcji, do której jest dodawny plik lub tekst
+      $kolor - kolor wyślwietlanego okienka/ wiadomości (np success, warning, danger)
+      $plik - plik, który ma by przesłany - wymaga to zmiennej $_FILES['plik']
+    Nauczyciel:
+      plik_nauczyciel_info($id_lekcji, $kolor) - wyświetla informacje o pliku wysłanym przez nauczyciela
+      plik_nauczyciel_link($id_lekcji) - zwraca link do pliku nauczyciela
+      plik_nauczyciel_usun($id_lekcji) - usuwa plik nauczyciela z lekcji
+      upload_nauczyciel($plik, $id_lekcji) - wrzuca plik nauczyciela na serwer
+    Uczen:
+      odp_uczen_usun($id_uzytkownika, $id_lekcji) - usuwa tektstowa odpowiedź użytkownika
+      plik_uczen_info($id_uzytkownika, $id_lekcji, $kolor) - wyświetla informację o pliku ucznia
+      plik_uczen_link($id_uzytkownika, $id_lekcji) - zwraca link do pliku ucznia
+      plik_uczen_usun($id_uzytkownika, $id_lekcji) - usuwa plik ucznia
+      uczen_odpowiedz_wyswietl($id_uzytkownika, $id_lekcji) - wyświetla odpowiedź tekstową ucznia
+      upload_odp_tekst($id_uzytkownika, $id_lekcji, $odpowiedz) - wrzuca odpowiedź tekstową ucznia na serwer
+      upload_plik_uczen($id_uzytkownika, $id_lekcji, $plik) - uploaduje plik ucznia na serwer
+      upload_sprawdz_typ($id_lekcji) - sprawdza typ lekcji, czy ma być wysłany plik (p) czy odp. tekstowa (t)
+       
     zalogowany() - zwraca TRUE jeśli użytkownik jest zalogowany, w przeciwnym wypadku FALSE
     zalogowano() - to samo co wyżej, tylko inna nazwa
     admin() - zwraca TRUE jeśli zalogowany jest admin, w przeciwnym wypadku FALSE
     nauczyciel() - zwraca TRUE, jeśli jest zalogowany nauczycie. W przeciwnym wypadku FALSE
-    
-    w_dane_usera($id_usera)
-    w_kalendarz($id_usera)
-    w_lista_kursow($id_usera, $ilosc)
-    w_ostatnie_lekcje($id_usera, $ilosc)
+    w_dane_usera($id_usera) - widget wyświetlający dane zalogowanego użytkownika
+    w_lista_kursow($id_usera, $ilosc) - widget wyświetlający $ilosc ostatnio dodanych kursów
+    w_ostatnie_lekcje($id_usera, $ilosc) - widget wyświetlahący $ilosc ostatnio dodanych lekcji
 
 
-
-
-
-Struktura katalogów: (@ - to folder; # - to plik)
+STRUKTURA KATALOGÓW: (@ - to folder; # - to plik)
 
     @ baza - znajdują się tu informacje o połączeniu z bazą danych, a także pliki z zrzutami MySQL
         # polaczenie.php - plik, który łączy się z bazą danych
         # *.sql - zrzuty z bazy danych
     
-    @ bootstrap - znajdują się tu wszystkie pliki z bootstrapa, lepiej nie mieszać nic tam
+    @ bootstrap - znajdują się tu wszystkie pliki z bootstrapa (czyli cały layout strony)
     
     @ funkcje - pliki z funkcjami i pliki "statyczne" (wyświetlane na każdej podstronie)
       - prefix f_ oznacza, że plik zawiera funkcje
