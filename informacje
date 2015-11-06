@@ -129,7 +129,7 @@ STRUKTURA KATALOGÓW: (@ - to folder; # - to plik)
         @ pliki_uczen - pliki zuploadowane przez ucznia
 
     # index.php - główny plik który jest uruchamiany po odpaleniu strony. Dołącza on inne pliki i wyświetla podstrony
-    # informacje - ten plik
+    # informacje - aktualnie otwarty plik
 
 
 Tabele z bazy danych

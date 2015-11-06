@@ -28,8 +28,15 @@
 
 <legend>Instrukcja odpalenia</legend>     
      
-	 W folderze ble ble ble
-	 
+W folderze <u><i>baza</i></u> znajduje się plik SQL z zrzutem bazy danych. Wystarczy go zaimportować do phpMyAdmin do bazy <b><i>projektMoodle</b></i><br><br>
+Domyślne dane połączenia to:<br>
+<ul>
+    <li>adres = <b>127.0.0.1</b></li>
+    <li>uzytkownik = <b>root</b></li>
+    <li>haslo = <b></b></li>
+    <li>nazwa_bazy = <b>projektMoodle</b></li>
+</ul>
+Łączenie następuje w pliku <u><i>baza/polaczenie.php</i></u> Tam też można zmianiać dane dostępowe.
 	 
 </div>
 <div class="col-md-2"></div>
