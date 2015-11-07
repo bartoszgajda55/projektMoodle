@@ -26,8 +26,21 @@
 <div class="col-md-2"></div>
 <div class="col-md-8">
 
+<?php
+    // jeśli udało się stworzyć tabele
+    if (isset($_GET['stworzono']) && $_GET['stworzono']=="tak")
+    {   
+        echo '<div class="alert alert-success" role="alert">Udało się stworzyć bazę danych wraz z tabelami. <a href="../index.php"><b>Wróć do strony głównej</b></a></div>';
+        return;
+    }
+?>
+    
+    
 <legend>Instrukcja odpalenia</legend>     
-     
+
+<hr>
+<a class="btn btn-danger" href="stworz_baze.php">Spróbuj automatycznie stworzyć bazę i zaimportować do niej tabele</a> <i>Operacja może potrwać dłuższą chwilę.</i>
+<hr>
 W folderze <u><i>baza</i></u> znajduje się plik SQL z zrzutem bazy danych. Wystarczy go zaimportować do phpMyAdmin do bazy <b><i>projektMoodle</b></i><br><br>
 Domyślne dane połączenia to:<br>
 <ul>
