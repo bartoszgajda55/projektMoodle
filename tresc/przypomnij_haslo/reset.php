@@ -67,7 +67,7 @@
 <div id="l_panel_prawy" class="col-md-6">
     <h2>Ustawianie Hasła</h2><br>
     <p>Jeśli dotarłeś na tą stronę, to znaczy że otrzymałeś już swój unikalny kod.
-        Wpisz go koniecznie, bez niego proces zmiany hasła nie powiedzie sie.
+        Wpisz go koniecznie, bez niego proces zmiany hasła się nie powiedzie.
     <p>Uważnie wpisz swoje nowe hasło. I koniecznie zapamiętaj, każdy nowy kod kosztuje 2,46 zł + VAT.<br>
     <center><img src="img/zyd.jpg" height='300'></center>
 </div>
