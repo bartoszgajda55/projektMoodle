@@ -21,10 +21,13 @@
                   
         ?>
         </div>
+        
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <?php
+            
+            standardowy_przycisk("index.php?v=tresc/zadanie", losuj_ikone()); 
             // jeśli zalogowano, wyświetlamy inne menu
             if (zalogowany())
             {
@@ -52,7 +55,7 @@
             }
               ?>
             <!--<li><a href="index.php" class=""></a></li> -->
-            
+           
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->

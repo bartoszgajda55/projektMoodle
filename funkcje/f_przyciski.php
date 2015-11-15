@@ -27,4 +27,32 @@ function komunikat($tresc, $kolor="info")
     echo '<div class="alert alert-'.$kolor.'" role="alert">'.$tresc.'</div>';
 }
 
+// losuje glyphicone
+function losuj_ikone()
+{
+    // tablica z ikonami
+    $ikona[]="asterisk";$ikona[]="plus";$ikona[]="euro";$ikona[]="eur";$ikona[]="minus";$ikona[]="cloud";$ikona[]="envelope";$ikona[]="pencil";
+    $ikona[]="glass";$ikona[]="music";$ikona[]="search";$ikona[]="heart";
+    $ikona[]="heart";$ikona[]="star";$ikona[]="star-empty";$ikona[]="user";
+	$ikona[]="film";$ikona[]="th";$ikona[]="list";$ikona[]="ok";
+	$ikona[]="remove";$ikona[]="cog";$ikona[]="zoom-in";$ikona[]="off";
+	$ikona[]="signal";$ikona[]="trash";$ikona[]="file";$ikona[]="road";
+	$ikona[]="download-alt";$ikona[]="repeat";$ikona[]="refresh";$ikona[]="volume-off";
+	$ikona[]="print";$ikona[]="font";$ikona[]="play";$ikona[]="stop";
+	$ikona[]="ok-sign";$ikona[]="arrow-down";$ikona[]="resize-full";$ikona[]="resize-small";
+	$ikona[]="calendar";$ikona[]="magnet";$ikona[]="tasks";$ikona[]="tasks";
+	$ikona[]="tasks";$ikona[]="tasks";$ikona[]="pushpin";$ikona[]="sort-by-attributes";
+	$ikona[]="briefcase";$ikona[]="globe";$ikona[]="phone";$ikona[]="wrench";
+	$ikona[]="tower";$ikona[]="ice-lolly-tasted";$ikona[]="console";$ikona[]="sunglasses";
+  
+    // wylosowana ikona
+    $wylosowana_liczba=rand(0, count($ikona)-1);
+    $wylosowana =$ikona[$wylosowana_liczba];
+    // nazwa ikony
+    $nazwa="glyphicon glyphicon-{$wylosowana}";
+    // zwrócenie ikony
+    return '<span class="'.$nazwa.'" aria-hidden="true"></span>';
+}
+
+
 ?>

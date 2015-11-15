@@ -104,9 +104,20 @@
     </div>
 
 <div id="l_panel_prawy" class="col-md-6">
-    <h2>Witaj na Moodle!</h2><br>
+    <h2>Witaj na Moodle!</h2><hr>
+    
+    <?php
+    komunikat('<p>Cały kod źródłowy tego projektu znajduje się na GitHubie. <br><br><center>
+                <a class="btn btn-lg btn-info" href="https://github.com/bartekg55/projektMoodle"> Znajdziesz go tutaj</a>
+                </center>', "success");
+    ?><br>
+    Możesz także pobrać projekt w paczce zip
+        <a style="margin-left: 20px;" class="btn btn-xs btn-info" href="https://github.com/bartekg55/projektMoodle/archive/master.zip"> Pobierz projekt</a>
+  
+    <hr>
     <p>Trafiłeś na stronę główną Moodle Project!
         Możesz zalogować się aby rozpocząć naukę, lub zacząć od rejestracji jeśli jesteś tutaj pierwszy raz. Miłej nauki !
-    <p>Dwa przyciski na górze pozwolą Ci rozpocząć przygodę z naszym serwisem.
+    <p>Dwa przyciski na górze pozwolą Ci rozpocząć przygodę z naszym serwisem.<hr>
+    
 </div>
 </div>
