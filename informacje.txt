@@ -1,4 +1,4 @@
-Plik z ogólnymi informacjami, dokumentacja projektu
+﻿Plik z ogólnymi informacjami, dokumentacja projektu
   ...
 Nazwy zmiennych sesyjnych;
     $_SESSION['zalogowany']; - przechowuje TRUE, jeśli uzytkownik jest zalogowany

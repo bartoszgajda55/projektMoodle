@@ -11,7 +11,7 @@
 <hr>
 <legend>Ogólne informacje</legend>
 <p>Ogólne informacje o plikach, zmiennych sesyjnych i funkcjach znajdziesz w pliku <i><u>informacje</i></u><br>
-<a class="btn btn-lg btn-info" href="informacje"> <i>informacje</i></a>
+<a class="btn btn-lg btn-info" href="informacje.txt"> <i>informacje</i></a>
 
 <hr>
 
