@@ -1,5 +1,11 @@
 # projektMoodle
-Projekt został stworzony na potrzeby zaliczenia programowania w czwartej klasie technikum informatycznego. Był tworzony na przełomie października i listopada 2015 przez dwóch "mózgów", których dane można znaleźć w wysłanych commitach.
+An e-learning platform build as a coursework project. Fully functional app, allows to post
+learning materials, make tests, record marks and administer courses. For use by students
+as well as teachers. Contains advanced control panel for admins and teachers. Build
+using LAMP stack.
+
+
+Projekt został stworzony na potrzeby zaliczenia programowania w czwartej klasie technikum informatycznego. W pełni działająca aplikacja, umożliwiająca wysyłąnie materiałów, tworzenie testów, wystawianie ocen i administrowanie kursem. Do użytku dla uczniów i nauczycieli. Zawiera zaawansowany panel administracyjny dla nauczycieli i adminów. Projekt tworzony na przełomie października i listopada 2015 przez dwóch "mózgów", których dane można znaleźć w wysłanych commitach. 
 
 
 ## Działający projekt:
