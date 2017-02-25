@@ -5,7 +5,7 @@ as well as teachers. Contains advanced control panel for admins and teachers. Bu
 using LAMP stack.
 
 
-Projekt został stworzony na potrzeby zaliczenia programowania w czwartej klasie technikum informatycznego. W pełni działająca aplikacja, umożliwiająca wysyłąnie materiałów, tworzenie testów, wystawianie ocen i administrowanie kursem. Do użytku dla uczniów i nauczycieli. Zawiera zaawansowany panel administracyjny dla nauczycieli i adminów. Projekt tworzony na przełomie października i listopada 2015 przez dwóch "mózgów", których dane można znaleźć w wysłanych commitach. 
+W pełni działająca aplikacja e-learningowa, umożliwiająca wysyłanie materiałów, tworzenie testów, wystawianie ocen i administrowanie kursem. Do użytku dla uczniów i nauczycieli. Zawiera zaawansowany panel administracyjny dla nauczycieli i adminów. Projekt został stworzony na potrzeby zaliczenia programowania w czwartej klasie technikum informatycznego. Tworzony na przełomie października i listopada 2015 przez dwóch "mózgów", których dane można znaleźć w wysłanych commitach. 
 
 
 ## Działający projekt:
